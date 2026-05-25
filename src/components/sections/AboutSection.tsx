@@ -9,32 +9,32 @@ const AboutSection: React.FC = () => {
     <section id="about" className="bg-[#0a0a0a] py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
-        {/* Header + stats — asymmetric split */}
-        <div className="flex flex-col lg:flex-row gap-16 items-start mb-24">
-          <div className="lg:w-1/2">
-            <p className="text-[#FF5C00] text-xs font-semibold tracking-[0.2em] uppercase mb-4">
-              Why us
-            </p>
-            <h2 className="text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight">
-              End-to-End IT Solutions<br />
-              <span className="text-white/25">That Drive Results</span>
-            </h2>
-            <p className="mt-5 text-white/40 text-base leading-relaxed max-w-md">
-              From strategy to execution, we build technology that compounds — each
-              decision made with your next milestone in mind.
-            </p>
-          </div>
+{/* Header + stats — centered layout */}
+      <div className="flex flex-col items-center text-center gap-12 mb-24">
+        <div className="max-w-3xl">
+          <p className="text-[#FF5C00] text-xs font-semibold tracking-[0.2em] uppercase mb-4">
+            Why us
+          </p>
+          <h2 className="text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight">
+            End-to-End IT Solutions<br />
+            <span className="text-white/25">That Drive Results</span>
+          </h2>
+          <p className="mt-5 text-white/40 text-base leading-relaxed px-4 sm:px-0">
+            From strategy to execution, we build technology that compounds — each
+            decision made with your next milestone in mind.
+          </p>
+        </div>
 
-          <div className="lg:w-1/2 grid grid-cols-2 gap-3 w-full">
-            {companyStats.map((stat) => (
-              <div
-                key={stat.label}
-                className="bg-[#111111] border border-white/[0.07] rounded-2xl p-6 group hover:border-[#FF5C00]/30 transition-colors duration-300"
-              >
-                <p className="text-4xl font-black text-[#FF5C00] mb-1 group-hover:scale-105 transition-transform duration-200 origin-left">
-                  {stat.value}
-                </p>
-                <p className="text-white/30 text-sm">{stat.label}</p>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 justify-center w-full max-w-5xl px-4">
+          {companyStats.map((stat) => (
+            <div
+              key={stat.label}
+              className="aspect-square rounded-full border border-white/[0.07] bg-[#111111] p-6 flex flex-col items-center justify-center text-center group hover:border-[#FF5C00]/30 transition-colors duration-300"
+            >
+              <p className="text-4xl font-black text-[#FF5C00] mb-2 group-hover:scale-105 transition-transform duration-200">
+                {stat.value}
+              </p>
+              <p className="text-white/30 text-sm leading-relaxed">{stat.label}</p>
               </div>
             ))}
           </div>

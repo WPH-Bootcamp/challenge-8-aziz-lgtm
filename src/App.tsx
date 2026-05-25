@@ -11,12 +11,14 @@
 
 import Layout from './components/layout/Layout';
 import HeroSection from './components/sections/HeroSection';
+import AboutSection from './components/sections/AboutSection';
 import ServicesSection from './components/sections/ServicesSection';
 
 function App() {
   return (
     <Layout>
       <HeroSection />
+      <AboutSection />
       <ServicesSection />
     </Layout>
   );
