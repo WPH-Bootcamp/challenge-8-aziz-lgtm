@@ -1,59 +1,72 @@
 import type { ServiceItem, IndustryItem } from '../types';
+import webDevelopmentIcon from '../assets/web-development.png';
+import mobileDevelopmentIcon from '../assets/mobile_development.png';
+import uiuxDesignIcon from '../assets/uiux-design.png';
+import cloudIcon from '../assets/cloud.png';
+import softwareIcon from '../assets/software.png';
+import infrastructureIcon from '../assets/insfrastructure.png';
+import cybersecurityIcon from '../assets/cyber.png';
+import qaIcon from '../assets/question.png';
+import consultingIcon from '../assets/consulting.png';
 
 export const services: ServiceItem[] = [
   {
     id: 1,
-    icon: 'globe',
+    icon: webDevelopmentIcon,
     title: 'Web Development',
-    description: 'Fast, scalable, SEO-friendly websites built with modern frameworks.',
+    description:
+      'Build fast, scalable, and SEO-friendly websites with modern architecture.',
   },
   {
     id: 2,
-    icon: 'mobile',
+    icon: mobileDevelopmentIcon,
     title: 'Mobile App Development',
-    description: 'Native & cross-platform apps tailored to real user needs.',
+    description:
+      'Native and cross-platform apps designed for real user engagement.',
   },
   {
     id: 3,
-    icon: 'palette',
+    icon: uiuxDesignIcon,
     title: 'UI/UX Design',
-    description: 'Delight users with intuitive, conversion-focused interfaces.',
+    description: 'Beautiful interfaces and intuitive experiences that convert.',
   },
   {
     id: 4,
-    icon: 'cloud',
+    icon: cloudIcon,
     title: 'Cloud Solutions',
-    description: 'Secure, elastic infrastructure that scales with your business.',
+    description: 'Secure and flexible cloud infrastructure for your growth.',
   },
   {
     id: 5,
-    icon: 'code',
+    icon: softwareIcon,
     title: 'Software Development',
-    description: 'Custom solutions architected around your exact business logic.',
+    description:
+      'Custom software built around your business strategy and logic.',
   },
   {
     id: 6,
-    icon: 'server',
+    icon: infrastructureIcon,
     title: 'IT Infrastructure',
-    description: 'Reliable backend foundations that support ambitious growth.',
+    description: 'Scale your backend with reliable tech foundations.',
   },
   {
     id: 7,
-    icon: 'shield',
+    icon: cybersecurityIcon,
     title: 'Cybersecurity Services',
-    description: 'Enterprise-grade protection before threats become incidents.',
+    description:
+      'Protect your systems with enterprise-grade security services.',
   },
   {
     id: 8,
-    icon: 'check',
+    icon: qaIcon,
     title: 'QA Solutions',
-    description: 'Rigorous testing frameworks that ensure peak performance.',
+    description: 'Ensure performance and reliability with rigorous testing.',
   },
   {
     id: 9,
-    icon: 'consulting',
+    icon: consultingIcon,
     title: 'IT Consulting & Support',
-    description: 'Expert guidance for smarter, faster technology decisions.',
+    description: 'Make smarter tech decisions with expert consulting support.',
   },
 ];
 

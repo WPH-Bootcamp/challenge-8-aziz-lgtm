@@ -21,7 +21,6 @@
  */
 export type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost';
 
-
 /**
  * Example: Button Props
  * Uncomment dan sesuaikan dengan kebutuhan
@@ -35,7 +34,7 @@ export type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost';
 //   disabled?: boolean;
 // }
 export type ButtonSize = 'sm' | 'md' | 'lg';
- 
+
 export interface ButtonProps {
   variant?: ButtonVariant;
   size?: ButtonSize;
@@ -82,14 +81,14 @@ export type ServiceIconName =
   | 'shield'
   | 'check'
   | 'consulting';
- 
+
 export interface ServiceItem {
   id: number;
-  icon: ServiceIconName;
+  icon: string;
   title: string;
   description: string;
 }
- 
+
 export interface IndustryItem {
   id: string;
   label: string;
@@ -187,7 +186,7 @@ export interface SocialLinks {
   twitter?: string;
   linkedin?: string;
 }
- 
+
 export interface CompanyInfo {
   name: string;
   tagline: string;
@@ -197,19 +196,18 @@ export interface CompanyInfo {
   address: string;
   social: SocialLinks;
 }
- 
+
 export interface StatItem {
   value: string;
   label: string;
 }
 
- 
 export interface ProcessStep {
   number: string;
   title: string;
   detail: string;
 }
- 
+
 export interface FaqItem {
   question: string;
   answer: string;

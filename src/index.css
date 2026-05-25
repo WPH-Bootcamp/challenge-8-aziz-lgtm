@@ -5,7 +5,8 @@
  * Docs: https://tailwindcss.com/docs/installation/using-vite
  */
 
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import 'tailwindcss';
 
 /* Tell Tailwind where to scan for classes */
 @source "./**/*.{js,jsx,ts,tsx}";
@@ -21,6 +22,27 @@
 /* Smooth scrolling for anchor links */
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* Stronger rule to override Tailwind or component font settings */
+html,
+body,
+#root {
+  font-family: 'Quicksand', sans-serif !important;
+}
+
+/* Ensure headings use Quicksand (overrides other utilities) */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Quicksand', sans-serif !important;
 }
 
 /* Optional: Custom scrollbar styles */
