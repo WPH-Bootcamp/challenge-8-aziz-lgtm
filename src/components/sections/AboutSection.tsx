@@ -1,111 +1,111 @@
 import React, { useState } from 'react';
 import Icon from '../ui/Icon';
-
-const stats = [
-  { value: '50+', label: 'Projects Delivered' },
-  { value: '5+', label: 'Years of Experience' },
-  { value: '10+', label: 'Industry Awards Won' },
-  { value: '100%', label: 'Client Satisfaction Rate' },
-];
-
-const processSteps = [
-  {
-    number: '01',
-    title: 'Discovery & Consultation',
-    description: 'Understand Your Needs & Goals',
-  },
-  {
-    number: '02',
-    title: 'Planning & Strategy',
-    description: 'Build a Clear, Scalable Roadmap',
-  },
-  {
-    number: '03',
-    title: 'Design & Prototyping',
-    description: 'Craft UX That Converts',
-  },
-  {
-    number: '04',
-    title: 'Development & Implementation',
-    description: 'Deliver With Speed & Precision',
-  },
-  {
-    number: '05',
-    title: 'Testing & Optimization',
-    description: 'Ensure Quality at Every Step',
-  },
-  {
-    number: '06',
-    title: 'Launch & Growth',
-    description: 'Scale, Measure & Improve Continuously',
-  },
-];
+import { companyStats, processSteps } from '../../data/company';
 
 const AboutSection: React.FC = () => {
-  const [openStep, setOpenStep] = useState<number | null>(0);
-
-  const toggle = (index: number) => {
-    setOpenStep(openStep === index ? null : index);
-  };
+  const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="about" className="bg-gray-950 py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Stats */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl sm:text-5xl font-black text-white mb-4">
-            End-to-End IT Solutions That Drive Results
-          </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            From strategy to execution, we deliver solutions that grow your business.
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
-            {stats.map((stat) => (
+    <section id="about" className="bg-[#0a0a0a] py-32">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+
+        {/* Header + stats — asymmetric split */}
+        <div className="flex flex-col lg:flex-row gap-16 items-start mb-24">
+          <div className="lg:w-1/2">
+            <p className="text-[#FF5C00] text-xs font-semibold tracking-[0.2em] uppercase mb-4">
+              Why us
+            </p>
+            <h2 className="text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight">
+              End-to-End IT Solutions<br />
+              <span className="text-white/25">That Drive Results</span>
+            </h2>
+            <p className="mt-5 text-white/40 text-base leading-relaxed max-w-md">
+              From strategy to execution, we build technology that compounds — each
+              decision made with your next milestone in mind.
+            </p>
+          </div>
+
+          <div className="lg:w-1/2 grid grid-cols-2 gap-3 w-full">
+            {companyStats.map((stat) => (
               <div
                 key={stat.label}
-                className="bg-gray-900 border border-gray-800 rounded-2xl p-6 text-center hover:border-orange-500/40 transition-colors duration-300"
+                className="bg-[#111111] border border-white/[0.07] rounded-2xl p-6 group hover:border-[#FF5C00]/30 transition-colors duration-300"
               >
-                <p className="text-4xl font-black text-orange-500 mb-2">{stat.value}</p>
-                <p className="text-gray-400 text-sm">{stat.label}</p>
+                <p className="text-4xl font-black text-[#FF5C00] mb-1 group-hover:scale-105 transition-transform duration-200 origin-left">
+                  {stat.value}
+                </p>
+                <p className="text-white/30 text-sm">{stat.label}</p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Process */}
+        {/* Process accordion */}
         <div>
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-black text-white mb-3">Our Process</h2>
-            <p className="text-gray-400">Clear steps. Smart execution. Results you can count on.</p>
-          </div>
+          <p className="text-[#FF5C00] text-xs font-semibold tracking-[0.2em] uppercase mb-4">
+            Our process
+          </p>
+          <h2 className="text-4xl font-black text-white mb-3 tracking-tight">
+            Clear steps.{' '}
+            <span className="text-white/25">Smart execution.</span>
+          </h2>
+          <p className="text-white/30 mb-12 max-w-md">
+            Results you can count on.
+          </p>
 
-          <div className="max-w-3xl mx-auto flex flex-col gap-3">
-            {processSteps.map((step, index) => (
-              <div
-                key={step.number}
-                className="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-gray-700 transition-colors duration-200"
-              >
-                <button
-                  onClick={() => toggle(index)}
-                  className="w-full flex items-center justify-between px-6 py-5 text-left"
-                >
-                  <div className="flex items-center gap-4">
-                    <span className="w-9 h-9 rounded-full bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-500 text-sm font-bold flex-shrink-0">
+          <div className="relative">
+            {/* Vertical connector line */}
+            <div className="absolute left-[19px] top-0 bottom-0 w-px bg-gradient-to-b from-[#FF5C00]/40 via-[#FF5C00]/10 to-transparent hidden md:block" />
+
+            <div className="flex flex-col gap-2">
+              {processSteps.map((step, i) => (
+                <div key={step.number} className="relative">
+                  <button
+                    onClick={() => setOpen(open === i ? null : i)}
+                    className="w-full flex items-center gap-5 text-left group py-4 pr-4"
+                  >
+                    <div
+                      className={[
+                        'w-10 h-10 rounded-full border flex items-center justify-center text-xs font-black flex-shrink-0 transition-all duration-200 z-10 bg-[#0a0a0a]',
+                        open === i
+                          ? 'border-[#FF5C00] text-[#FF5C00] shadow-[0_0_16px_rgba(255,92,0,0.3)]'
+                          : 'border-white/10 text-white/30 group-hover:border-white/30',
+                      ].join(' ')}
+                    >
                       {step.number}
+                    </div>
+
+                    <span
+                      className={[
+                        'flex-1 font-semibold text-base transition-colors duration-150',
+                        open === i ? 'text-white' : 'text-white/50 group-hover:text-white/80',
+                      ].join(' ')}
+                    >
+                      {step.title}
                     </span>
-                    <span className="text-white font-semibold">{step.title}</span>
-                  </div>
-                  <span className="text-gray-500">
-                    <Icon name={openStep === index ? 'chevron-up' : 'chevron-down'} size={18} />
-                  </span>
-                </button>
-                {openStep === index && (
-                  <div className="px-6 pb-5 pl-[4.5rem]">
-                    <p className="text-gray-400 text-sm">{step.description}</p>
-                  </div>
-                )}
-              </div>
-            ))}
+
+                    <span
+                      className={[
+                        'text-white/20 transition-all duration-200',
+                        open === i ? 'text-[#FF5C00] rotate-180' : '',
+                      ].join(' ')}
+                    >
+                      <Icon name="chevron-down" size={16} />
+                    </span>
+                  </button>
+
+                  {open === i && (
+                    <div className="pl-[3.75rem] pb-5 pr-4">
+                      <p className="text-white/40 text-sm leading-relaxed">{step.detail}</p>
+                    </div>
+                  )}
+
+                  {i < processSteps.length - 1 && (
+                    <div className="ml-[3.75rem] h-px bg-white/[0.05]" />
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

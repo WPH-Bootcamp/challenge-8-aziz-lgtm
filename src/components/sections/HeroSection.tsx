@@ -1,72 +1,100 @@
 import React from 'react';
 import Button from '../ui/Button';
-import Icon from '../ui/Icon';
+import { companyInfo, companyStats, trustedBrands } from '../../data/company';
 
-const trustedBrands = [
-  'Lework', 'Zoom', 'Rethree', 'Databricks', 'Airbnb', 'Dropbox', 'Pho.',
-];
-
-export const HeroSection: React.FC = () => {
+const HeroSection: React.FC = () => {
   return (
-    <section className="relative min-h-screen bg-gray-950 flex flex-col overflow-hidden">
-      {/* Background gradient glow */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl" />
-        <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-orange-600/8 rounded-full blur-2xl" />
-      </div>
+    <section className="relative min-h-screen bg-[#0a0a0a] flex flex-col overflow-hidden">
+      {/* Subtle grid */}
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)',
+          backgroundSize: '80px 80px',
+        }}
+      />
+      {/* Ambient glow — top right */}
+      <div
+        className="absolute top-0 right-0 w-[600px] h-[500px] pointer-events-none"
+        style={{
+          background:
+            'radial-gradient(ellipse at 80% 10%, rgba(255,92,0,0.18) 0%, transparent 65%)',
+        }}
+      />
+      {/* Dim glow — bottom left */}
+      <div
+        className="absolute bottom-0 left-0 w-[400px] h-[400px] pointer-events-none"
+        style={{
+          background:
+            'radial-gradient(ellipse at 20% 90%, rgba(255,92,0,0.07) 0%, transparent 60%)',
+        }}
+      />
 
-      {/* Hero content */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-12 pt-32 pb-20 flex-1">
-        {/* Left: Text */}
-        <div className="flex-1 max-w-xl">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-tight tracking-tight">
-            Your Tech Partner for{' '}
-            <span className="text-orange-500">Smarter Growth</span>
+      {/* Main content */}
+      <div className="relative flex-1 max-w-7xl mx-auto w-full px-6 lg:px-8 flex flex-col justify-center pt-32 pb-20">
+        <div className="max-w-4xl">
+          {/* Eyebrow tag */}
+          <div className="inline-flex items-center gap-2 bg-[#FF5C00]/10 border border-[#FF5C00]/20 rounded-full px-4 py-1.5 mb-8">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FF5C00] animate-pulse" />
+            <span className="text-[#FF5C00] text-xs font-semibold tracking-widest uppercase">
+              Trusted by global innovators
+            </span>
+          </div>
+
+          {/* Headline — layered opacity for depth */}
+          <h1 className="font-black text-white leading-[1.05] tracking-tight mb-6">
+            <span className="block text-[clamp(3rem,8vw,6.5rem)]">Your Tech</span>
+            <span className="block text-[clamp(3rem,8vw,6.5rem)] text-white/20">
+              Partner for
+            </span>
+            <span className="block text-[clamp(3rem,8vw,6.5rem)] text-[#FF5C00]">
+              Smarter Growth
+            </span>
           </h1>
-          <p className="mt-6 text-gray-400 text-lg leading-relaxed">
-            We deliver tailored IT solutions to help you scale with speed and confidence.
+
+          <p className="text-white/40 text-lg max-w-xl leading-relaxed mb-10">
+            {companyInfo.description}
           </p>
-          <div className="mt-8">
-            <Button size="lg" className="rounded-full">
-              Let's Talk
-            </Button>
+
+          <div className="flex flex-wrap items-center gap-4">
+            <Button size="lg">Let's Talk</Button>
+            <a
+              href="#services"
+              className="text-white/40 hover:text-white text-sm font-medium transition-colors flex items-center gap-2"
+            >
+              <span>See our services</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
           </div>
         </div>
 
-        {/* Right: Illustration placeholder / device mockup */}
-        <div className="flex-1 flex justify-center lg:justify-end">
-          <div className="relative w-72 h-72 lg:w-96 lg:h-96">
-            {/* Glowing orb / abstract device */}
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-orange-700/10 rounded-3xl border border-orange-500/20 backdrop-blur-sm flex items-center justify-center">
-              <div className="w-40 h-40 bg-gradient-to-br from-orange-500/30 to-orange-700/20 rounded-2xl flex items-center justify-center border border-orange-500/30">
-                <div className="text-orange-400 opacity-80">
-                  <Icon name="code" size={64} />
-                </div>
-              </div>
+        {/* Floating stat cards */}
+        <div className="hidden lg:flex absolute right-8 top-1/2 -translate-y-1/2 flex-col gap-4">
+          {companyStats.slice(0, 3).map((stat) => (
+            <div
+              key={stat.label}
+              className="bg-[#111111] border border-white/[0.07] rounded-xl px-5 py-4 text-right"
+            >
+              <p className="text-2xl font-black text-[#FF5C00] leading-none">{stat.value}</p>
+              <p className="text-white/30 text-xs mt-1 font-medium">{stat.label}</p>
             </div>
-            {/* Floating badge */}
-            <div className="absolute -bottom-4 -left-4 bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 shadow-xl">
-              <p className="text-orange-500 font-black text-2xl">50+</p>
-              <p className="text-gray-400 text-xs">Projects Delivered</p>
-            </div>
-            <div className="absolute -top-4 -right-4 bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 shadow-xl">
-              <p className="text-orange-500 font-black text-2xl">100%</p>
-              <p className="text-gray-400 text-xs">Client Satisfaction</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
 
-      {/* Trusted brands */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 w-full">
-        <p className="text-center text-gray-600 text-sm font-medium mb-6 tracking-widest uppercase">
-          Trusted by Global Innovators &amp; Leading Brands
-        </p>
-        <div className="flex flex-wrap justify-center items-center gap-8">
+      {/* Brand strip */}
+      <div className="relative border-t border-white/[0.05] py-8">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-wrap justify-center items-center gap-10">
+          <span className="text-white/20 text-xs font-semibold tracking-[0.2em] uppercase">
+            Trusted by
+          </span>
           {trustedBrands.map((brand) => (
             <span
               key={brand}
-              className="text-gray-600 hover:text-gray-400 font-semibold text-base transition-colors duration-200 cursor-default tracking-wide"
+              className="text-white/20 hover:text-white/50 font-bold text-sm tracking-wide transition-colors duration-200 cursor-default"
             >
               {brand}
             </span>

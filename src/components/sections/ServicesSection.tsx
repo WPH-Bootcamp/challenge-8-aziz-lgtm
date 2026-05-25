@@ -1,109 +1,99 @@
 import React, { useState } from 'react';
-import Card from '../ui/Card';
 import Icon from '../ui/Icon';
+import { services, industries } from '../../data/services';
 
+const ServicesSection: React.FC = () => {
+  const [activeId, setActiveId] = useState(industries[0].id);
 
-
-type ServiceIconName = 'globe' | 'mobile' | 'palette' | 'cloud' | 'code' | 'server' | 'shield' | 'check' | 'consulting';
-
-const services: { icon: ServiceIconName; title: string; description: string }[] = [
-  { icon: 'globe', title: 'Web Development', description: 'Build fast, scalable, and SEO-friendly websites.' },
-  { icon: 'mobile', title: 'Mobile App Development', description: 'Native & cross-platform apps tailored to user needs.' },
-  { icon: 'palette', title: 'UI/UX Design', description: 'Delight users with intuitive and beautiful interfaces.' },
-  { icon: 'cloud', title: 'Cloud Solutions', description: 'Secure and flexible cloud infrastructure for your growth.' },
-  { icon: 'code', title: 'Software Development', description: 'Custom solutions built around your business logic.' },
-  { icon: 'server', title: 'IT Infrastructure', description: 'Scale your backend with reliable tech foundations.' },
-  { icon: 'shield', title: 'Cybersecurity Services', description: 'Stay protected with enterprise-grade security.' },
-  { icon: 'check', title: 'QA Solutions', description: 'Ensure performance with rigorous testing frameworks.' },
-  { icon: 'consulting', title: 'IT Consulting & Support', description: 'Make smarter tech decisions with expert guidance.' },
-];
-
-const industries = [
-  {
-    id: 'fintech',
-    label: 'Fintech',
-    description:
-      'We build secure, scalable, and compliant fintech solutions — from digital wallets to core banking systems tailored to modern financial needs.',
-  },
-  {
-    id: 'ecommerce',
-    label: 'E-Commerce',
-    description:
-      'We craft high-performance e-commerce platforms with seamless UX, smart integrations, and conversion-focused design built for growth.',
-  },
-  {
-    id: 'healthcare',
-    label: 'Healthcare',
-    description:
-      'We develop HIPAA-compliant digital health solutions, from patient portals to telemedicine platforms that transform care delivery.',
-  },
-];
-
-export const ServicesSection: React.FC = () => {
-  const [activeIndustry, setActiveIndustry] = useState('fintech');
-
-  const activeData = industries.find((i) => i.id === activeIndustry)!;
+  const active = industries.find((ind) => ind.id === activeId)!;
 
   return (
-    <section id="services" className="bg-gray-950 py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Services Grid */}
-        <div className="text-center mb-14">
-          <h2 className="text-4xl sm:text-5xl font-black text-white mb-4">
-            Smart IT Solutions That Grow With You
-          </h2>
-          <p className="text-gray-400 text-lg">Tailored tech to boost efficiency, security, and results.</p>
+    <section id="services" className="bg-[#0d0d0d] py-32">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+
+        {/* Header — left-aligned with right-side subtext */}
+        <div className="mb-16">
+          <p className="text-[#FF5C00] text-xs font-semibold tracking-[0.2em] uppercase mb-4">
+            Services
+          </p>
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
+            <h2 className="text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight max-w-xl">
+              Smart IT Solutions<br />
+              <span className="text-white/25">That Grow With You</span>
+            </h2>
+            <p className="text-white/30 text-sm max-w-xs lg:text-right leading-relaxed">
+              Tailored tech to boost efficiency, security, and results.
+            </p>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-24">
+        {/* Services grid — gap-px trick for a unified bordered look */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/[0.05] rounded-2xl overflow-hidden mb-24">
           {services.map((service) => (
-            <Card key={service.title} hover className="group">
-              <div className="w-11 h-11 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-500 mb-4 group-hover:bg-orange-500/20 transition-colors duration-300">
-                <Icon name={service.icon} size={22} />
+            <div
+              key={service.id}
+              className="bg-[#0d0d0d] p-7 group hover:bg-[#111111] transition-colors duration-200 cursor-pointer"
+            >
+              <div className="w-9 h-9 rounded-lg border border-white/[0.08] flex items-center justify-center text-[#FF5C00] mb-5 group-hover:border-[#FF5C00]/40 group-hover:bg-[#FF5C00]/10 transition-all duration-200">
+                <Icon name={service.icon} size={18} />
               </div>
-              <h3 className="text-white font-bold text-lg mb-2">{service.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{service.description}</p>
-            </Card>
+              <h3 className="text-white font-semibold text-[15px] mb-2 leading-snug">
+                {service.title}
+              </h3>
+              <p className="text-white/30 text-sm leading-relaxed">{service.description}</p>
+            </div>
           ))}
         </div>
 
-        {/* Industry section */}
+        {/* Industry focus */}
         <div>
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-black text-white mb-3">Built for Your Industry</h2>
-            <p className="text-gray-400">
-              We've helped companies across industries launch smarter, faster, and more securely.
-            </p>
+          <p className="text-[#FF5C00] text-xs font-semibold tracking-[0.2em] uppercase mb-4">
+            Industry focus
+          </p>
+          <h2 className="text-4xl font-black text-white mb-10 tracking-tight">
+            Built for Your Industry
+          </h2>
+
+          {/* Tab pills */}
+          <div className="flex gap-2 mb-8 flex-wrap">
+            {industries.map((ind) => (
+              <button
+                key={ind.id}
+                onClick={() => setActiveId(ind.id)}
+                className={[
+                  'px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200',
+                  activeId === ind.id
+                    ? 'bg-[#FF5C00] text-white shadow-[0_0_20px_rgba(255,92,0,0.25)]'
+                    : 'bg-white/[0.04] text-white/40 hover:text-white border border-white/[0.07]',
+                ].join(' ')}
+              >
+                {ind.label}
+              </button>
+            ))}
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-8 items-start">
-            {/* Tabs */}
-            <div className="flex flex-col gap-2 min-w-[180px]">
-              {industries.map((industry) => (
-                <button
-                  key={industry.id}
-                  onClick={() => setActiveIndustry(industry.id)}
-                  className={`text-left px-5 py-3 rounded-lg text-sm font-semibold transition-all duration-200 ${
-                    activeIndustry === industry.id
-                      ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20'
-                      : 'text-gray-400 hover:text-white hover:bg-gray-800'
-                  }`}
-                >
-                  {industry.label}
-                </button>
-              ))}
+          {/* Active industry content */}
+          <div className="bg-[#111111] border border-white/[0.07] rounded-2xl p-8 flex flex-col lg:flex-row gap-10">
+            <div className="flex-1">
+              <span className="text-[#FF5C00]/60 text-xs font-semibold tracking-widest uppercase">
+                {active.tag}
+              </span>
+              <h3 className="text-2xl font-black text-white mt-2 mb-4">{active.label}</h3>
+              <p className="text-white/40 leading-relaxed">{active.description}</p>
             </div>
-
-            {/* Content */}
-            <div className="flex-1 bg-gray-900 border border-gray-800 rounded-2xl p-8 flex flex-col lg:flex-row gap-8 items-start min-h-[200px]">
-              <div className="flex-1">
-                <h3 className="text-2xl font-black text-white mb-4">{activeData.label}</h3>
-                <p className="text-gray-400 text-base leading-relaxed">{activeData.description}</p>
-              </div>
-              {/* Decorative image placeholder */}
-              <div className="w-full lg:w-64 h-36 bg-gray-800 rounded-xl border border-gray-700 flex items-center justify-center flex-shrink-0">
-                <span className="text-gray-600 text-sm">Industry Visual</span>
-              </div>
+            {/* Intentional placeholder — styled to look like a real visual */}
+            <div className="lg:w-72 h-44 rounded-xl border border-white/[0.06] bg-gradient-to-br from-[#FF5C00]/5 to-transparent flex items-center justify-center flex-shrink-0 relative overflow-hidden">
+              <div
+                className="absolute inset-0 opacity-5"
+                style={{
+                  backgroundImage:
+                    'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
+                  backgroundSize: '24px 24px',
+                }}
+              />
+              <span className="text-[#FF5C00]/20 font-black text-4xl tracking-tight">
+                {active.label}
+              </span>
             </div>
           </div>
         </div>

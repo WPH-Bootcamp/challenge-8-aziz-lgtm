@@ -1,78 +1,72 @@
 import React from 'react';
-import Card from '../ui/Card';
 import Icon from '../ui/Icon';
-
-const testimonials = [
-  {
-    quote:
-      'The team was a game changer for our project. They understood our vision and turned it into reality efficiently and effectively.',
-    name: 'John Lee',
-    role: 'Creative Director at Innovate Corp',
-    rating: 5,
-  },
-  {
-    quote:
-      'The team delivered exactly what we needed on time and with outstanding quality. Their attention to detail and communication were top-notch.',
-    name: 'Sarah Tan',
-    role: 'Product Manager at Finovate',
-    rating: 5,
-  },
-  {
-    quote:
-      'The collaboration was seamless, and the results exceeded our expectations. Their expertise transformed our idea into a successful product.',
-    name: 'Emily Chen',
-    role: 'Marketing Head at Tech Solutions',
-    rating: 5,
-  },
-];
+import { testimonials } from '../../data/testimonials';
 
 const TestimonialsSection: React.FC = () => {
   return (
-    <section id="testimonials" className="bg-gray-950 py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
-          <h2 className="text-4xl sm:text-5xl font-black text-white mb-4">
-            What Partners Say About Working With Us
+    <section id="testimonials" className="bg-[#0d0d0d] py-32">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+
+        <div className="mb-16">
+          <p className="text-[#FF5C00] text-xs font-semibold tracking-[0.2em] uppercase mb-4">
+            Testimonials
+          </p>
+          <h2 className="text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight">
+            What Partners Say<br />
+            <span className="text-white/25">About Working With Us</span>
           </h2>
-          <p className="text-gray-400 text-lg">Trusted voices. Real experiences. Proven results.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((testimonial, index) => (
-            <Card
-              key={index}
-              className="relative flex flex-col justify-between"
-              padding="lg"
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {testimonials.map((t) => (
+            <div
+              key={t.id}
+              className={[
+                'relative rounded-2xl border p-7 flex flex-col justify-between transition-all duration-300',
+                t.featured
+                  ? 'bg-[#151515] border-[#FF5C00]/20 shadow-[0_0_40px_rgba(255,92,0,0.05)]'
+                  : 'bg-[#111111] border-white/[0.07]',
+              ].join(' ')}
             >
-              {/* Quote mark */}
-              <div className="text-orange-500/30 text-7xl font-black leading-none absolute top-4 right-6 select-none">
-                "
-              </div>
+              {/* Top accent line */}
+              <div
+                className="absolute top-0 left-8 w-12 h-px"
+                style={{ background: t.accentColor }}
+              />
 
               {/* Stars */}
-              <div className="flex gap-1 mb-4">
-                {Array.from({ length: testimonial.rating }).map((_, i) => (
-                  <span key={i} className="text-orange-400">
-                    <Icon name="star" size={14} />
+              <div className="flex gap-1 mb-5">
+                {Array.from({ length: t.rating }).map((_, i) => (
+                  <span key={i} className="text-[#FF5C00]">
+                    <Icon name="star" size={12} />
                   </span>
                 ))}
               </div>
 
-              <p className="text-gray-300 text-sm leading-relaxed mb-6 relative z-10">
-                "{testimonial.quote}"
+              <p className="text-white/50 text-sm leading-relaxed mb-8 flex-1">
+                "{t.quote}"
               </p>
 
               {/* Author */}
-              <div className="flex items-center gap-3 pt-4 border-t border-gray-800">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500/40 to-orange-700/20 border border-orange-500/30 flex items-center justify-center text-orange-400 font-bold text-sm flex-shrink-0">
-                  {testimonial.name.charAt(0)}
+              <div className="flex items-center gap-3 pt-5 border-t border-white/[0.05]">
+                <div
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-black flex-shrink-0"
+                  style={{
+                    background: `${t.accentColor}18`,
+                    border: `1px solid ${t.accentColor}30`,
+                    color: t.accentColor,
+                  }}
+                >
+                  {t.avatar}
                 </div>
                 <div>
-                  <p className="text-white font-semibold text-sm">{testimonial.name}</p>
-                  <p className="text-gray-500 text-xs">{testimonial.role}</p>
+                  <p className="text-white font-semibold text-sm leading-tight">{t.name}</p>
+                  <p className="text-white/25 text-xs mt-0.5">
+                    {t.role} · {t.company}
+                  </p>
                 </div>
               </div>
-            </Card>
+            </div>
           ))}
         </div>
       </div>
