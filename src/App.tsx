@@ -16,11 +16,13 @@ import ServicesSection from './components/sections/ServicesSection';
 
 function App() {
   return (
-    <Layout>
-      <HeroSection />
-      <AboutSection />
-      <ServicesSection />
-    </Layout>
+    <div className='min-h-screen bg-white text-gray-900'>
+      <Layout>
+        <HeroSection />
+        <AboutSection />
+        <ServicesSection />
+      </Layout>
+    </div>
   );
 }
 

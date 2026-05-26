@@ -26,6 +26,8 @@ interface ButtonProps {
   className?: string;
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
+  leftIcon?: React.ReactNode;
+  rightIcon?: React.ReactNode;
 }
 
 /**
@@ -47,6 +49,8 @@ const Button: React.FC<ButtonProps> = ({
   className = '',
   disabled = false,
   type = 'button',
+  leftIcon,
+  rightIcon,
 }) => {
   // Base styles yang selalu applied
   const baseStyles =
@@ -87,7 +91,9 @@ const Button: React.FC<ButtonProps> = ({
       disabled={disabled}
       className={buttonClasses}
     >
+      {leftIcon ? <span className='mr-2 inline-flex'>{leftIcon}</span> : null}
       {children}
+      {rightIcon ? <span className='ml-2 inline-flex'>{rightIcon}</span> : null}
     </button>
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../ui/Button';
-import { companyInfo, companyStats, trustedBrands } from '../../data/company';
+import { companyInfo } from '../../data/company';
 import heroImage from '../../assets/hero_image.png';
 import adobe from '../../assets/adobe.png';
 import airbnb from '../../assets/airbnb.png';
