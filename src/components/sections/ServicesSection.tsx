@@ -50,57 +50,44 @@ const ServicesSection: React.FC = () => {
 
         {/* Industry focus */}
         <div>
-          <p className='text-[#FF5C00] text-xs font-semibold tracking-[0.2em] uppercase mb-4'>
-            Industry focus
-          </p>
-          <h2 className='text-4xl font-black text-white mb-10 tracking-tight'>
+          <h2 className='text-4xl font-black text-white mb-3 tracking-tight'>
             Built for Your Industry
           </h2>
+          <p className='text-white/40 text-sm mb-10'>
+            We've helped companies across industries launch smarter, faster, and more securely.
+          </p>
 
-          {/* Tab pills */}
-          <div className='flex gap-2 mb-8 flex-wrap'>
-            {industries.map((ind) => (
-              <button
-                key={ind.id}
-                onClick={() => setActiveId(ind.id)}
-                className={[
-                  'px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200',
-                  activeId === ind.id
-                    ? 'bg-[#FF5C00] text-white shadow-[0_0_20px_rgba(255,92,0,0.25)]'
-                    : 'bg-white/[0.04] text-white/40 hover:text-white border border-white/[0.07]',
-                ].join(' ')}
-              >
-                {ind.label}
-              </button>
-            ))}
-          </div>
+          <div className='flex gap-12'>
+            {/* Vertical tab list */}
+            <div className='flex flex-col gap-6 w-44 shrink-0 pt-1'>
+              {industries.map((ind) => (
+                <button
+                  key={ind.id}
+                  onClick={() => setActiveId(ind.id)}
+                  className={[
+                    'text-left pl-4 py-0.5 border-l-2 text-sm font-medium transition-all duration-200',
+                    activeId === ind.id
+                      ? 'border-[#FF5C00] text-white'
+                      : 'border-white/20 text-white/35 hover:text-white/60',
+                  ].join(' ')}
+                >
+                  {ind.label}
+                </button>
+              ))}
+            </div>
 
-          {/* Active industry content */}
-          <div className='bg-[#111111] border border-white/[0.07] rounded-2xl p-8 flex flex-col lg:flex-row gap-10'>
+            {/* Description + image stacked */}
             <div className='flex-1'>
-              <span className='text-[#FF5C00]/60 text-xs font-semibold tracking-widest uppercase'>
-                {active.tag}
-              </span>
-              <h3 className='text-2xl font-black text-white mt-2 mb-4'>
-                {active.label}
-              </h3>
-              <p className='text-white/40 leading-relaxed'>
+              <p className='text-white/60 text-sm leading-relaxed mb-6'>
                 {active.description}
               </p>
-            </div>
-            {/* Intentional placeholder — styled to look like a real visual */}
-            <div className='lg:w-72 h-44 rounded-xl border border-white/[0.06] bg-gradient-to-br from-[#FF5C00]/5 to-transparent flex items-center justify-center flex-shrink-0 relative overflow-hidden'>
-              <div
-                className='absolute inset-0 opacity-5'
-                style={{
-                  backgroundImage:
-                    'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
-                  backgroundSize: '24px 24px',
-                }}
-              />
-              <span className='text-[#FF5C00]/20 font-black text-4xl tracking-tight'>
-                {active.label}
-              </span>
+              <div className='rounded-xl overflow-hidden'>
+                <img
+                  src={active.image}
+                  alt={active.label}
+                  className='w-full object-cover rounded-xl'
+                />
+              </div>
             </div>
           </div>
         </div>

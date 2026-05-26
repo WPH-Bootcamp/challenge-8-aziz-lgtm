@@ -1,4 +1,7 @@
 import type { ServiceItem, IndustryItem } from '../types';
+import fintechImage from '../assets/assets/fintech.png';
+import ecommerceImage from '../assets/assets/e_commerce.png';
+import healthcareImage from '../assets/assets/healthcare.png';
 import webDevelopmentIcon from '../assets/web-development.png';
 import mobileDevelopmentIcon from '../assets/mobile_development.png';
 import uiuxDesignIcon from '../assets/uiux-design.png';
@@ -77,6 +80,7 @@ export const industries: IndustryItem[] = [
     tag: 'Financial Technology',
     description:
       'We build secure, scalable, and compliant fintech solutions — from digital wallets to core banking systems tailored to modern financial needs.',
+    image: fintechImage,
   },
   {
     id: 'ecommerce',
@@ -84,6 +88,7 @@ export const industries: IndustryItem[] = [
     tag: 'Retail & Commerce',
     description:
       'High-performance storefronts, headless architecture, and intelligent inventory systems that convert browsers into buyers.',
+    image: ecommerceImage,
   },
   {
     id: 'healthcare',
@@ -91,5 +96,6 @@ export const industries: IndustryItem[] = [
     tag: 'Health Technology',
     description:
       'HIPAA-compliant digital health solutions — from patient portals to telemedicine platforms that transform how care is delivered.',
+    image: healthcareImage,
   },
 ];
