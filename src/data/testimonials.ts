@@ -1,4 +1,7 @@
 import type { Testimonial } from '../types';
+import johnLee from '../assets/partners/john_lee.png';
+import sarahTan from '../assets/partners/sarah_tan.png';
+import emilyChen from '../assets/partners/emily_chen.png';
 
 export const testimonials: Testimonial[] = [
   {
@@ -7,8 +10,9 @@ export const testimonials: Testimonial[] = [
     role: 'Creative Director',
     company: 'Innovate Corp',
     avatar: 'JL',
+    avatarImg: johnLee,
     quote:
-      'The team was a game changer for our project. They understood our vision and turned it into reality efficiently and effectively.',
+      'Working with this team was a game-changer for our project. They understood our vision and turned it into reality efficiently and effectively.',
     rating: 5,
     accentColor: '#FF5C00',
   },
@@ -18,8 +22,9 @@ export const testimonials: Testimonial[] = [
     role: 'Product Manager',
     company: 'Finovate',
     avatar: 'ST',
+    avatarImg: sarahTan,
     quote:
-      'The team delivered exactly what we needed on time and with outstanding quality. Their attention to detail and communication were top-notch.',
+      'The team delivered exactly what we needed — on time and with outstanding quality. Their attention to detail and communication were top-notch.',
     rating: 5,
     accentColor: '#0066FF',
     featured: true,
@@ -30,8 +35,9 @@ export const testimonials: Testimonial[] = [
     role: 'Marketing Head',
     company: 'Tech Solutions',
     avatar: 'EC',
+    avatarImg: emilyChen,
     quote:
-      'The collaboration was seamless, and the results exceeded our expectations. Their expertise transformed our idea into a successful product.',
+      'The collaboration was seamless, and the results surpassed our expectations. Their expertise transformed our ideas into a successful product.',
     rating: 5,
     accentColor: '#9B5DE5',
   },

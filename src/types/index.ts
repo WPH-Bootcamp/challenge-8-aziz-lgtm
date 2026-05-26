@@ -119,6 +119,7 @@ export interface ProjectItem {
   accentColor: string;
   year: string;
   featured?: boolean;
+  image?: string;
 }
 /**
  * Example: Testimonial
@@ -138,6 +139,7 @@ export interface Testimonial {
   role: string;
   company: string;
   avatar: string;
+  avatarImg?: string;
   quote: string;
   rating: number;
   accentColor: string;

@@ -1,29 +1,7 @@
-/**
- * Main App Component
- *
- * TODO untuk mentee:
- * 1. Import Home page component (setelah dibuat)
- * 2. Render Home component di sini
- * 3. Atau setup routing jika membuat multiple pages
- *
- * Current: Placeholder untuk testing Tailwind setup
- */
-
-import Layout from './components/layout/Layout';
-import HeroSection from './components/sections/HeroSection';
-import AboutSection from './components/sections/AboutSection';
-import ServicesSection from './components/sections/ServicesSection';
+import Home from './pages/Home';
 
 function App() {
-  return (
-    <div className='min-h-screen bg-white text-gray-900'>
-      <Layout>
-        <HeroSection />
-        <AboutSection />
-        <ServicesSection />
-      </Layout>
-    </div>
-  );
+  return <Home />;
 }
 
 export default App;
