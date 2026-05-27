@@ -1,5 +1,6 @@
 import React from 'react';
 import Icon from '../ui/Icon';
+import companyLogo from '../../assets/company_logo.png';
 
 const navLinks = [
   { label: 'About', href: '#about' },
@@ -9,72 +10,69 @@ const navLinks = [
   { label: 'FAQ', href: '#faq' },
 ];
 
+const TikTokIcon = ({ size = 16 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z" />
+  </svg>
+);
+
 const socialLinks = [
-  { name: 'facebook' as const, href: '#' },
-  { name: 'twitter' as const, href: '#' },
-  { name: 'linkedin' as const, href: '#' },
-  { name: 'instagram' as const, href: '#' },
+  { key: 'facebook', icon: <Icon name="facebook" size={16} /> },
+  { key: 'instagram', icon: <Icon name="instagram" size={16} /> },
+  { key: 'linkedin', icon: <Icon name="linkedin" size={16} /> },
+  { key: 'tiktok', icon: <TikTokIcon size={16} /> },
 ];
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-950 border-t border-gray-800">
-      {/* Top CTA Banner */}
-      <div className="bg-gray-900 py-10 px-4">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+    <footer className="bg-[#0d0d0d] py-8 px-4">
+      <div className="mx-auto w-full max-w-290 min-h-82 bg-[#111111] rounded-2xl flex flex-col justify-between px-12 py-10">
+
+        {/* Top: CTA + Logo */}
+        <div className="flex items-center justify-between">
           <div>
-            <p className="text-xs font-semibold tracking-widest text-orange-500 uppercase mb-1">
+            <p className="text-xs font-semibold tracking-widest text-[#FF5C00] uppercase mb-1">
               LET'S DISCUSS
             </p>
-            <h3 className="text-3xl font-black text-white">YOUR IDEAS</h3>
+            <h3 className="text-4xl font-black text-white">YOUR IDEAS</h3>
           </div>
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-black text-sm">Y</span>
-              </div>
-              <span className="text-white font-bold text-lg">Your Logo</span>
-            </div>
+          <div className="flex items-center gap-3">
+            <img src={companyLogo} alt="Company Logo" className="h-8 w-auto" />
+            <span className="text-white font-bold text-lg">Your Logo</span>
           </div>
         </div>
-      </div>
 
-      {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          {/* Nav links */}
-          <nav className="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-2">
+        {/* Divider */}
+        <div className="border-t border-white/10 my-2" />
+
+        {/* Bottom: Nav + Social */}
+        <div className="flex items-center justify-between">
+          <nav className="flex flex-wrap gap-x-6 gap-y-2">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="text-gray-400 hover:text-white text-sm transition-colors duration-200"
+                className="text-white/50 hover:text-white text-sm transition-colors duration-200"
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
-          {/* Social icons */}
           <div className="flex items-center gap-3">
             {socialLinks.map((social) => (
               <a
-                key={social.name}
-                href={social.href}
-                className="w-9 h-9 rounded-full bg-gray-800 hover:bg-orange-500 flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200"
-                aria-label={social.name}
+                key={social.key}
+                href="#"
+                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#FF5C00] flex items-center justify-center text-white/60 hover:text-white transition-all duration-200"
+                aria-label={social.key}
               >
-                <Icon name={social.name} size={16} />
+                {social.icon}
               </a>
             ))}
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-gray-800 text-center">
-          <p className="text-gray-600 text-xs">
-            © {new Date().getFullYear()} Your Logo. All rights reserved.
-          </p>
-        </div>
       </div>
     </footer>
   );

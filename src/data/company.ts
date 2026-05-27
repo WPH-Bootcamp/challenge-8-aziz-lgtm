@@ -4,7 +4,7 @@ export const companyInfo: CompanyInfo = {
   name: 'Your Logo',
   tagline: 'Your Tech Partner for Smarter Growth',
   description:
-    'We deliver tailored IT solutions to help you scale with speed and confidence — from strategy to execution.',
+    'From strategy to execution, we deliver solutions that grow your business.',
   email: 'hello@yourlogo.com',
   phone: '+62 812-3456-7890',
   address: 'Jakarta, Indonesia',
@@ -33,40 +33,34 @@ export const trustedBrands: string[] = [
 
 export const processSteps: ProcessStep[] = [
   {
-    number: '01',
+    number: '1',
     title: 'Discovery & Consultation',
-    detail:
-      'We begin by deeply understanding your goals, constraints, and competitive landscape through structured workshops and open conversations.',
+    detail: 'Understand Your Needs & Goals',
   },
   {
-    number: '02',
+    number: '2',
     title: 'Planning & Strategy',
-    detail:
-      'A clear, scalable roadmap built around your timelines, budget, and long-term vision — so everyone knows exactly what comes next.',
+    detail: 'Build a Clear, Scalable Roadmap',
   },
   {
-    number: '03',
+    number: '3',
     title: 'Design & Prototyping',
-    detail:
-      'High-fidelity prototypes that validate UX decisions before a single line of production code is written. Less rework, more confidence.',
+    detail: 'Craft UX That Converts',
   },
   {
-    number: '04',
+    number: '4',
     title: 'Development & Implementation',
-    detail:
-      'Agile delivery with weekly demos, transparent progress tracking, and rapid iteration based on your feedback.',
+    detail: 'Deliver With Speed & Precision',
   },
   {
-    number: '05',
+    number: '5',
     title: 'Testing & Optimization',
-    detail:
-      'Automated and manual QA across devices, browsers, and edge cases — so launch day feels like a celebration, not a gamble.',
+    detail: 'Ensure Quality at Every Step',
   },
   {
-    number: '06',
+    number: '6',
     title: 'Launch & Growth',
-    detail:
-      'Post-launch monitoring, analytics dashboards, and continuous improvement cycles. We scale alongside you.',
+    detail: 'Scale, Measure & Improve Continuously',
   },
 ];
 

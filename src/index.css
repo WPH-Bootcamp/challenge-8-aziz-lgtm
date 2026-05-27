@@ -8,6 +8,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 @import 'tailwindcss';
 
+/* Enable class-based dark mode for Tailwind v4 */
+@variant dark (&:where(.dark, .dark *));
+
 /* Tell Tailwind where to scan for classes */
 @source "./**/*.{js,jsx,ts,tsx}";
 @source "../index.html";
@@ -43,6 +46,16 @@ h4,
 h5,
 h6 {
   font-family: 'Quicksand', sans-serif !important;
+}
+
+/* Tailwind v4: register custom animation token */
+@theme {
+  --animate-marquee: marquee 18s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0%); }
+  to { transform: translateX(-50%); }
 }
 
 /* Optional: Custom scrollbar styles */

@@ -29,8 +29,7 @@ const TeamSection: React.FC = () => {
                   <img
                     src={project.image}
                     alt={project.name}
-                    className="w-full object-cover object-top"
-                    style={{ height: '240px' }}
+                    className="w-full h-60 object-cover object-top"
                   />
                 ) : (
                   <div className="h-60 flex items-center justify-center text-white/20 text-sm">

@@ -4,9 +4,10 @@ import Input from '../ui/Input';
 import Icon from '../ui/Icon';
 import { faqItems, contactServiceOptions } from '../../data/company';
 import type { ContactFormData } from '../../types';
+import consultationImg from '../../assets/consultation.png';
 
 const ContactSection: React.FC = () => {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [form, setForm] = useState<ContactFormData>({
     name: '',
     email: '',
@@ -40,72 +41,69 @@ const ContactSection: React.FC = () => {
   return (
     <>
       {/* FAQ */}
-      <section id="faq" className="bg-[#0a0a0a] py-32">
+      <section id="faq" className="bg-[#0a0a0a] py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid lg:grid-cols-[1fr_2fr] gap-16">
 
-            {/* Left */}
+          {/* Header row */}
+          <div className="flex items-start justify-between mb-6 flex-nowrap">
+            <h2 className="text-4xl lg:text-5xl font-black text-white leading-tight">
+              Need Help? Start<br />Here.
+            </h2>
+            <p className="text-white/40 text-sm text-right max-w-[200px] mt-2">
+              Everything you need to know — all in one place.
+            </p>
+          </div>
+
+          {/* Divider */}
+          <div className="border-t border-white/10 mb-10" />
+
+          {/* Two columns */}
+          <div className="grid grid-cols-[1fr_280px] gap-10 items-start">
+
+            {/* Left — FAQ accordion */}
             <div>
-              <p className="text-[#FF5C00] text-xs font-semibold tracking-[0.2em] uppercase mb-4">
-                FAQ
-              </p>
-              <h2 className="text-4xl font-black text-white leading-tight tracking-tight mb-5">
-                Need Help?<br />
-                <span className="text-white/25">Start Here.</span>
-              </h2>
-              <p className="text-white/30 text-sm leading-relaxed mb-8">
-                Everything you need to know — all in one place.
-              </p>
-
-              {/* CTA card */}
-              <div className="bg-[#111111] border border-white/[0.07] rounded-2xl p-6">
-                <div className="w-10 h-10 rounded-xl bg-[#FF5C00]/10 border border-[#FF5C00]/20 flex items-center justify-center text-[#FF5C00] mb-4">
-                  <Icon name="consulting" size={18} />
-                </div>
-                <p className="text-white font-bold mb-1">Free Consultation</p>
-                <p className="text-white/30 text-sm mb-5 leading-relaxed">
-                  Book a free call with our team. No pressure, just clarity.
-                </p>
-                <Button size="sm" className="w-full">Book a call</Button>
-              </div>
-            </div>
-
-            {/* Right — FAQ accordion */}
-            <div className="flex flex-col gap-2">
               {faqItems.map((faq, i) => (
-                <div
-                  key={i}
-                  className="border border-white/[0.06] rounded-xl overflow-hidden bg-[#111111]/50 hover:bg-[#111111] transition-colors"
-                >
+                <div key={i} className="border-b border-white/10">
                   <button
                     onClick={() => toggleFaq(i)}
-                    className="w-full flex items-center justify-between px-6 py-4 text-left"
+                    className="w-full flex items-center justify-between py-5 text-left"
                   >
-                    <span
-                      className={[
-                        'text-sm font-medium transition-colors',
-                        openFaq === i ? 'text-white' : 'text-white/50',
-                      ].join(' ')}
-                    >
+                    <span className={`text-base font-medium transition-colors ${openFaq === i ? 'text-white' : 'text-white/60'}`}>
                       {faq.question}
                     </span>
-                    <span
-                      className={[
-                        'flex-shrink-0 ml-4 transition-all duration-200 text-white/20',
-                        openFaq === i ? 'rotate-180 text-[#FF5C00]' : '',
-                      ].join(' ')}
-                    >
-                      <Icon name="chevron-down" size={16} />
+                    <span className="text-white/50 text-xl ml-4 flex-shrink-0">
+                      {openFaq === i ? '−' : '+'}
                     </span>
                   </button>
                   {openFaq === i && (
-                    <div className="px-6 pb-5">
-                      <p className="text-white/35 text-sm leading-relaxed">{faq.answer}</p>
-                    </div>
+                    <p className="text-white/50 text-sm pb-5 leading-relaxed">
+                      {faq.answer}
+                    </p>
                   )}
                 </div>
               ))}
             </div>
+
+            {/* Right — Orange CTA card */}
+            <div className="bg-[#FF5C00] rounded-2xl p-6 flex flex-col gap-4">
+              <div>
+                <h3 className="text-white font-black text-2xl leading-tight mb-2">
+                  Let's talk it through
+                </h3>
+                <p className="text-white/80 text-sm leading-relaxed">
+                  book a free consultation with our team.
+                </p>
+              </div>
+              <img
+                src={consultationImg}
+                alt="Team consultation"
+                className="rounded-xl w-full object-cover"
+              />
+              <button className="w-full bg-white text-[#1a1a1a] font-bold py-3 rounded-xl text-sm hover:bg-white/90 transition-colors">
+                Free Consultation
+              </button>
+            </div>
+
           </div>
         </div>
       </section>

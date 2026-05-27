@@ -1,40 +1,88 @@
 import React, { useState } from 'react';
 import Icon from '../ui/Icon';
-import { companyStats, processSteps } from '../../data/company';
+import { companyInfo, companyStats, processSteps } from '../../data/company';
+import adobe from '../../assets/adobe.png';
+import airbnb from '../../assets/airbnb.png';
+import paypal from '../../assets/paypal.png';
+import netflix from '../../assets/netflix.png';
+import postman from '../../assets/postman.png';
+import zoom from '../../assets/zoom.png';
+import dropbox from '../../assets/dropbox.png';
+import upwork from '../../assets/upwork.png';
+import databrick from '../../assets/databrick.png';
+
+const logos = [
+  { src: adobe, alt: 'Adobe' },
+  { src: zoom, alt: 'Zoom' },
+  { src: postman, alt: 'Postman' },
+  { src: databrick, alt: 'Databrick' },
+  { src: netflix, alt: 'Netflix' },
+  { src: airbnb, alt: 'Airbnb' },
+  { src: dropbox, alt: 'Dropbox' },
+  { src: upwork, alt: 'Upwork' },
+  { src: paypal, alt: 'PayPal' },
+];
 
 const AboutSection: React.FC = () => {
-  const [open, setOpen] = useState<number | null>(null);
+  const [openItems, setOpenItems] = useState<Set<number>>(new Set());
+
+  const toggle = (index: number) => {
+    setOpenItems((prev) => {
+      const next = new Set(prev);
+      if (next.has(index)) next.delete(index);
+      else next.add(index);
+      return next;
+    });
+  };
 
   return (
-    <section id='about' className='bg-[#0a0a0a] py-32'>
+    <section id='about' className='bg-[#0a0a0a] pb-32'>
+      {/* Brand strip */}
+      <div className='relative h-[164px] overflow-hidden border-t border-white/5 mb-24 [mask-image:linear-gradient(to_right,transparent_0%,black_12%,black_88%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_12%,black_88%,transparent_100%)]'>
+
+        {/* Title */}
+        <span className='block w-full text-2xl font-bold leading-9 text-center text-[#FDFDFD]'>
+          Trusted by Global Innovators & Leading Brands
+        </span>
+
+        {/* Logos container — doubled for seamless loop */}
+        <div
+          aria-hidden='true'
+          className='flex flex-row items-center py-10 gap-12 absolute w-[1604px] h-32 left-[140px] top-9 animate-marquee'
+        >
+          {[...logos, ...logos].map((logo, i) => (
+            <img
+              key={i}
+              src={logo.src}
+              alt={logo.alt}
+              className='w-[98px] h-12 mix-blend-luminosity shrink-0 opacity-[0.65] grayscale transition-all duration-200 ease-in-out hover:opacity-100 hover:grayscale-0 hover:scale-105'
+            />
+          ))}
+        </div>
+      </div>
+
       <div className='max-w-7xl mx-auto px-6 lg:px-8'>
-        {/* Header + stats — centered layout */}
+        {/* Header + stats */}
         <div className='flex flex-col items-center text-center gap-12 mb-24'>
-          <div className='max-w-3xl'>
-            <p className='text-[#FF5C00] text-xs font-semibold tracking-[0.2em] uppercase mb-4'>
-              Why us
-            </p>
-            <h2 className='text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight'>
-              End-to-End IT Solutions
-              <br />
-              <span className='text-white/25'>That Drive Results</span>
+          <div className='w-full max-w-5xl'>
+            <h2 className='w-full font-bold text-[40px] leading-[56px] text-center tracking-[-0.02em] text-[#FDFDFD] m-0'>
+              End-to-End IT Solutions That Drive Results
             </h2>
-            <p className='mt-5 text-white/40 text-base leading-relaxed px-4 sm:px-0'>
-              From strategy to execution, we build technology that compounds —
-              each decision made with your next milestone in mind.
+            <p className='w-full font-medium text-lg leading-8 text-center text-[#A4A7AE] m-0'>
+              {companyInfo.description}
             </p>
           </div>
 
-          <div className='grid grid-cols-2 sm:grid-cols-4 gap-6 justify-center w-full max-w-5xl px-4'>
+          <div className='flex flex-row justify-center items-center flex-wrap gap-6 w-full'>
             {companyStats.map((stat) => (
               <div
                 key={stat.label}
-                className='aspect-square rounded-full border border-white/[0.07] bg-[#111111] p-6 flex flex-col items-center justify-center text-center group hover:border-[#FF5C00]/30 transition-colors duration-300'
+                className='flex flex-col justify-center items-center p-4 gap-1.5 w-[275px] h-[275px] bg-[#0A0D12] border border-[#181D27] rounded-full shrink-0'
               >
-                <p className='text-4xl font-black text-[#FF5C00] mb-2 group-hover:scale-105 transition-transform duration-200'>
+                <p className='text-[40px] font-black text-[#FF5C00] text-center m-0'>
                   {stat.value}
                 </p>
-                <p className='text-white/30 text-sm leading-relaxed'>
+                <p className='text-sm text-[#FDFDFD]/70 text-center m-0'>
                   {stat.label}
                 </p>
               </div>
@@ -42,134 +90,62 @@ const AboutSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Process accordion */}
+        {/* Our Process */}
         <div className='mx-auto max-w-6xl'>
           <div className='flex flex-col items-center text-center gap-4 mb-12'>
-            <p className='text-[#FF5C00] text-xs font-semibold tracking-[0.2em] uppercase'>
-              Our process
-            </p>
-            <h2 className='text-4xl sm:text-5xl font-black text-white tracking-tight leading-tight'>
-              Clear steps.
-              <span className='text-white/25 block'>Smart execution.</span>
+            <h2 className='text-4xl sm:text-5xl font-bold text-white tracking-tight leading-tight'>
+              Our Process
             </h2>
-            <p className='text-white/30 max-w-xl'>Results you can count on.</p>
+            <p className='text-white/40 max-w-xl'>
+              Clear steps. Smart execution. Results you can count on.
+            </p>
           </div>
 
-          <div className='relative grid grid-cols-1 gap-6 md:grid-cols-[1fr_auto_1fr] items-start'>
-            <div className='space-y-6'>
-              {processSteps
-                .filter((_, i) => i % 2 === 0)
-                .map((step, i) => {
-                  const index = i * 2;
-                  return (
-                    <div key={step.number} className='flex justify-end'>
-                      <div className='w-full max-w-[480px] rounded-[30px] border border-white/10 bg-[#111111]/90 p-6 shadow-[0_0_30px_rgba(0,0,0,0.35)] transition-all duration-300 hover:border-[#FF5C00]/30'>
-                        <button
-                          type='button'
-                          onClick={() => setOpen(open === index ? null : index)}
-                          className='w-full text-left'
-                        >
-                          <div className='flex items-center justify-between gap-4'>
-                            <div>
-                              <p className='text-sm font-semibold text-white/50 mb-1 uppercase tracking-[0.18em]'>
-                                Step {step.number}
-                              </p>
-                              <h3
-                                className={
-                                  open === index
-                                    ? 'text-xl font-black text-white'
-                                    : 'text-xl font-black text-white/80'
-                                }
-                              >
-                                {step.title}
-                              </h3>
-                            </div>
-                            <span
-                              className={
-                                open === index
-                                  ? 'text-[#FF5C00] rotate-180 transition-transform duration-200'
-                                  : 'text-white/40 transition-transform duration-200'
-                              }
-                            >
-                              <Icon name='chevron-down' size={20} />
-                            </span>
-                          </div>
-                        </button>
+          <div className='relative'>
+            {/* Continuous vertical line */}
+            <div className='absolute left-1/2 top-0 bottom-0 w-px bg-white/10 -translate-x-1/2' />
 
-                        {open === index && (
-                          <div className='mt-4 text-white/40 text-sm leading-relaxed'>
-                            {step.detail}
-                          </div>
-                        )}
-                      </div>
+            <div className='relative grid grid-cols-[1fr_auto_1fr] gap-y-8'>
+              {processSteps.map((step, index) => {
+                const isLeft = index % 2 === 0;
+                const isOpen = openItems.has(index);
+
+                const card = (
+                  <div className='w-full rounded-2xl bg-[#111111] p-5 cursor-pointer' onClick={() => toggle(index)}>
+                    <div className='flex items-center justify-between gap-4'>
+                      <h3 className='w-[333px] font-bold text-xl leading-[34px] text-[#FDFDFD] shrink-0 m-0'>
+                        {step.title}
+                      </h3>
+                      <span className={`shrink-0 transition-transform duration-200 ${isOpen ? 'text-[#FF5C00] rotate-180' : 'text-white/50'}`}>
+                        <Icon name='chevron-down' size={20} />
+                      </span>
                     </div>
-                  );
-                })}
-            </div>
-
-            <div className='relative flex justify-center py-4 md:py-0'>
-              <div className='absolute inset-y-0 w-px bg-white/10' />
-              <div className='relative z-10 flex flex-col items-center gap-6'>
-                {processSteps.map((step) => (
-                  <div
-                    key={`${step.number}-marker`}
-                    className='flex items-center justify-center w-11 h-11 rounded-full bg-[#FF5C00] text-sm font-black text-black shadow-[0_0_24px_rgba(255,92,0,0.35)]'
-                  >
-                    {step.number}
+                    {isOpen && (
+                      <p className='w-[333px] font-medium text-base leading-[30px] text-[#A4A7AE] m-0 mt-2'>
+                        {step.detail}
+                      </p>
+                    )}
                   </div>
-                ))}
-              </div>
-            </div>
+                );
 
-            <div className='space-y-6'>
-              {processSteps
-                .filter((_, i) => i % 2 === 1)
-                .map((step, i) => {
-                  const index = i * 2 + 1;
-                  return (
-                    <div key={step.number} className='flex justify-start'>
-                      <div className='w-full max-w-[480px] rounded-[30px] border border-white/10 bg-[#111111]/90 p-6 shadow-[0_0_30px_rgba(0,0,0,0.35)] transition-all duration-300 hover:border-[#FF5C00]/30'>
-                        <button
-                          type='button'
-                          onClick={() => setOpen(open === index ? null : index)}
-                          className='w-full text-left'
-                        >
-                          <div className='flex items-center justify-between gap-4'>
-                            <div>
-                              <p className='text-sm font-semibold text-white/50 mb-1 uppercase tracking-[0.18em]'>
-                                Step {step.number}
-                              </p>
-                              <h3
-                                className={
-                                  open === index
-                                    ? 'text-xl font-black text-white'
-                                    : 'text-xl font-black text-white/80'
-                                }
-                              >
-                                {step.title}
-                              </h3>
-                            </div>
-                            <span
-                              className={
-                                open === index
-                                  ? 'text-[#FF5C00] rotate-180 transition-transform duration-200'
-                                  : 'text-white/40 transition-transform duration-200'
-                              }
-                            >
-                              <Icon name='chevron-down' size={20} />
-                            </span>
-                          </div>
-                        </button>
+                return (
+                  <React.Fragment key={step.number}>
+                    <div className='flex items-center justify-end pr-8'>
+                      {isLeft ? card : null}
+                    </div>
 
-                        {open === index && (
-                          <div className='mt-4 text-white/40 text-sm leading-relaxed'>
-                            {step.detail}
-                          </div>
-                        )}
+                    <div className='relative z-10 flex items-center justify-center py-2'>
+                      <div className='flex items-center justify-center w-11 h-11 rounded-full bg-[#FF5C00] text-sm font-bold text-white shrink-0'>
+                        {step.number}
                       </div>
                     </div>
-                  );
-                })}
+
+                    <div className='flex items-center justify-start pl-8'>
+                      {!isLeft ? card : null}
+                    </div>
+                  </React.Fragment>
+                );
+              })}
             </div>
           </div>
         </div>
