@@ -54,7 +54,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   // Base styles yang selalu applied
   const baseStyles =
-    'font-medium rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2';
+    'font-medium rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer';
 
   // Variant styles - SESUAIKAN dengan design Figma!
   const variantStyles = {

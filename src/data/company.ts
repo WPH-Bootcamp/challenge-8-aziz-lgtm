@@ -4,6 +4,8 @@ export const companyInfo: CompanyInfo = {
   name: 'Your Logo',
   tagline: 'Your Tech Partner for Smarter Growth',
   description:
+    'We deliver tailored IT solutions to help you scale with speed and confidence.',
+  longDescription:
     'From strategy to execution, we deliver solutions that grow your business.',
   email: 'hello@yourlogo.com',
   phone: '+62 812-3456-7890',

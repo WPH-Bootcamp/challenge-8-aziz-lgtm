@@ -1,20 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { testimonials } from '../../data/testimonials';
 import quotationImg from '../../assets/quotation.png';
 
-const CARD_W = 594;
 const GAP = 28;
-const STEP = CARD_W + GAP;
 
 const TestimonialsSection: React.FC = () => {
   const [current, setCurrent] = useState(1);
+  const [cardW, setCardW] = useState(() => Math.min(window.innerWidth - 48, 594));
+
+  useEffect(() => {
+    const update = () => setCardW(Math.min(window.innerWidth - 48, 594));
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+
+  const STEP = cardW + GAP;
 
   return (
     <section id="testimonials" className="bg-gray-50 dark:bg-[#0d0d0d] py-24">
 
       {/* Header */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center mb-16">
-        <h2 className="font-bold text-[40px] leading-14 text-center tracking-[-0.02em] text-gray-900 dark:text-[#FDFDFD] flex-none self-stretch grow-0 mb-4">
+        <h2 className="font-bold text-[28px] sm:text-[34px] md:text-[40px] leading-tight md:leading-14 text-center tracking-[-0.02em] text-gray-900 dark:text-[#FDFDFD] flex-none self-stretch grow-0 mb-4">
           What Partners Say About Working With Us
         </h2>
         <p className="font-medium text-lg leading-8 text-center text-[#A4A7AE] flex-none order-1 self-stretch grow-0">
@@ -27,7 +34,7 @@ const TestimonialsSection: React.FC = () => {
         <div
           className="flex transition-transform duration-500 ease-out"
           style={{
-            transform: `translateX(calc(50vw - ${current * STEP + CARD_W / 2}px))`,
+            transform: `translateX(calc(50vw - ${current * STEP + cardW / 2}px))`,
           }}
         >
           {testimonials.map((t, i) => {
@@ -37,9 +44,9 @@ const TestimonialsSection: React.FC = () => {
                 key={t.id}
                 onClick={() => !isActive && setCurrent(i)}
                 className={`relative shrink-0 transition-all duration-500 ${
-                  isActive ? '' : 'opacity-40 cursor-pointer'
+                  isActive ? '' : 'opacity-40 cursor-pointer hover:opacity-60'
                 }`}
-                style={{ width: `${CARD_W}px`, marginRight: `${GAP}px` }}
+                style={{ width: `${cardW}px`, marginRight: `${GAP}px` }}
               >
                 {/* Quotation mark image — floats top-left above the card */}
                 <div className="absolute -top-7 left-8 z-10">
@@ -47,10 +54,10 @@ const TestimonialsSection: React.FC = () => {
                 </div>
 
                 {/* Card */}
-                <div className={`rounded-2xl p-px transition-all duration-500 ${isActive ? 'bg-linear-to-br from-[#FF623E] via-[#C026D3] to-black shadow-[0_0_24px_rgba(255,98,62,0.25)]' : 'bg-white/5'}`}>
+                <div className={`rounded-2xl p-px transition-all duration-500 ${isActive ? 'bg-linear-to-br from-[#FF623E] via-[#C026D3] to-black shadow-[0_0_24px_rgba(255,98,62,0.25)]' : 'bg-white/5 hover:bg-white/10 hover:shadow-md'}`}>
                 <div
                   className={`flex flex-col items-center px-6 pt-6 pb-12 gap-6 isolate min-h-73 dark:bg-[#181D27] rounded-[15px] flex-none order-1 grow-0 z-1 transition-colors duration-500 ${
-                    isActive ? 'bg-white' : 'bg-gray-100'
+                    isActive ? 'bg-white' : 'bg-gray-100 hover:bg-gray-50 dark:hover:bg-[#1e2333]'
                   }`}
                 >
                   {/* Stars */}
@@ -107,7 +114,7 @@ const TestimonialsSection: React.FC = () => {
             key={i}
             onClick={() => setCurrent(i)}
             aria-label={`Go to testimonial ${i + 1}`}
-            className={`rounded-full transition-all duration-300 ${
+            className={`rounded-full transition-all duration-300 cursor-pointer ${
               i === current
                 ? 'w-3 h-3 bg-[#FF6C37] flex-none order-0 grow-0'
                 : 'w-3 h-3 bg-gray-300 dark:bg-white/25 hover:bg-gray-400 dark:hover:bg-white/50'

@@ -194,6 +194,7 @@ export interface CompanyInfo {
   name: string;
   tagline: string;
   description: string;
+  longDescription: string;
   email: string;
   phone: string;
   address: string;

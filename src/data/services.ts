@@ -18,20 +18,20 @@ export const services: ServiceItem[] = [
     icon: webDevelopmentIcon,
     title: 'Web Development',
     description:
-      'Build fast, scalable, and SEO-friendly websites with modern architecture.',
+      'Build fast, scalable, and SEO-friendly websites.',
   },
   {
     id: 2,
     icon: mobileDevelopmentIcon,
     title: 'Mobile App Development',
     description:
-      'Native and cross-platform apps designed for real user engagement.',
+      'Native & cross-platform apps tailored to user needs.',
   },
   {
     id: 3,
     icon: uiuxDesignIcon,
     title: 'UI/UX Design',
-    description: 'Beautiful interfaces and intuitive experiences that convert.',
+    description: 'Delight users with intuitive and beautiful interfaces.',
   },
   {
     id: 4,
@@ -44,7 +44,7 @@ export const services: ServiceItem[] = [
     icon: softwareIcon,
     title: 'Software Development',
     description:
-      'Custom software built around your business strategy and logic.',
+      'Custom solutions built around your business logic.',
   },
   {
     id: 6,
@@ -57,19 +57,19 @@ export const services: ServiceItem[] = [
     icon: cybersecurityIcon,
     title: 'Cybersecurity Services',
     description:
-      'Protect your systems with enterprise-grade security services.',
+      'Stay protected with enterprise-grade security.',
   },
   {
     id: 8,
     icon: qaIcon,
     title: 'QA Solutions',
-    description: 'Ensure performance and reliability with rigorous testing.',
+    description: 'Ensure performance with rigorous testing frameworks.',
   },
   {
     id: 9,
     icon: consultingIcon,
     title: 'IT Consulting & Support',
-    description: 'Make smarter tech decisions with expert consulting support.',
+    description: 'Make smarter tech decisions with expert guidance.',
   },
 ];
 
