@@ -79,7 +79,7 @@ export const industries: IndustryItem[] = [
     label: 'Fintech',
     tag: 'Financial Technology',
     description:
-      'We build secure, scalable, and compliant fintech solutions — from digital wallets to core banking systems tailored to modern financial needs.',
+      'We build secure, scalable, and compliant fintech solutions — from digital wallets to core banking systems — tailored to modern financial needs.',
     image: fintechImage,
   },
   {
@@ -87,7 +87,7 @@ export const industries: IndustryItem[] = [
     label: 'E-Commerce',
     tag: 'Retail & Commerce',
     description:
-      'High-performance storefronts, headless architecture, and intelligent inventory systems that convert browsers into buyers.',
+      'Boost your online sales with fast, reliable platforms designed for seamless shopping experiences, inventory management, and payment integration.',
     image: ecommerceImage,
   },
   {
@@ -95,7 +95,7 @@ export const industries: IndustryItem[] = [
     label: 'Healthcare',
     tag: 'Health Technology',
     description:
-      'HIPAA-compliant digital health solutions — from patient portals to telemedicine platforms that transform how care is delivered.',
+      'Empowering healthcare providers with digital solutions that improve patient care, ensure data privacy, and streamline operational workflows.',
     image: healthcareImage,
   },
 ];

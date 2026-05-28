@@ -25,8 +25,8 @@ const socialLinks = [
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#0d0d0d] py-8 px-4">
-      <div className="mx-auto w-full max-w-290 min-h-82 bg-[#111111] rounded-2xl flex flex-col justify-between px-12 py-10">
+    <footer className="bg-gray-100 dark:bg-[#0d0d0d] py-8 px-4">
+      <div className="mx-auto w-full max-w-290 min-h-82 bg-white dark:bg-[#111111] rounded-2xl flex flex-col justify-between px-12 py-10 border border-gray-200 dark:border-transparent">
 
         {/* Top: CTA + Logo */}
         <div className="flex items-center justify-between">
@@ -34,16 +34,16 @@ const Footer: React.FC = () => {
             <p className="text-xs font-semibold tracking-widest text-[#FF5C00] uppercase mb-1">
               LET'S DISCUSS
             </p>
-            <h3 className="text-4xl font-black text-white">YOUR IDEAS</h3>
+            <h3 className="text-4xl font-black text-gray-900 dark:text-white">YOUR IDEAS</h3>
           </div>
           <div className="flex items-center gap-3">
             <img src={companyLogo} alt="Company Logo" className="h-8 w-auto" />
-            <span className="text-white font-bold text-lg">Your Logo</span>
+            <span className="text-gray-900 dark:text-white font-bold text-lg">Your Logo</span>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="border-t border-white/10 my-2" />
+        <div className="border-t border-gray-200 dark:border-white/10 my-2" />
 
         {/* Bottom: Nav + Social */}
         <div className="flex items-center justify-between">
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-white/50 hover:text-white text-sm transition-colors duration-200"
+                className="text-[#717680] dark:text-white/50 hover:text-gray-900 dark:hover:text-white text-sm transition-colors duration-200"
               >
                 {link.label}
               </a>
@@ -64,7 +64,7 @@ const Footer: React.FC = () => {
               <a
                 key={social.key}
                 href="#"
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#FF5C00] flex items-center justify-center text-white/60 hover:text-white transition-all duration-200"
+                className="w-9 h-9 rounded-full bg-gray-100 dark:bg-white/10 hover:bg-[#FF5C00] flex items-center justify-center text-[#717680] dark:text-white/60 hover:text-white transition-all duration-200"
                 aria-label={social.key}
               >
                 {social.icon}

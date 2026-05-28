@@ -5,10 +5,10 @@ export type ThemeMode = 'light' | 'dark';
 const STORAGE_KEY = 'theme-mode';
 
 function getInitialMode(): ThemeMode {
-  if (typeof window === 'undefined') return 'dark';
+  if (typeof window === 'undefined') return 'light';
   const stored = window.localStorage.getItem(STORAGE_KEY);
   if (stored === 'light' || stored === 'dark') return stored;
-  return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  return 'light';
 }
 
 interface ThemeContextValue {
@@ -16,7 +16,7 @@ interface ThemeContextValue {
   toggle: () => void;
 }
 
-const ThemeContext = createContext<ThemeContextValue>({ mode: 'dark', toggle: () => {} });
+const ThemeContext = createContext<ThemeContextValue>({ mode: 'light', toggle: () => {} });
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [mode, setMode] = useState<ThemeMode>(getInitialMode);

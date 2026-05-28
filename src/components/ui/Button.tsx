@@ -59,7 +59,7 @@ const Button: React.FC<ButtonProps> = ({
   // Variant styles - SESUAIKAN dengan design Figma!
   const variantStyles = {
     primary:
-      'bg-[#FF5C00] text-white hover:bg-[#FF5C00]/90 focus:ring-[#FF5C00]',
+      'bg-[#FF623E] text-white hover:bg-[#FF623E]/90 focus:ring-[#FF623E] shadow-[inset_4px_4px_4px_rgba(255,255,255,0.25)]',
     secondary: 'bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500',
     outline:
       'border-2 border-[#FF5C00] text-[#FF5C00] hover:bg-[#FF5C00]/10 focus:ring-[#FF5C00]',

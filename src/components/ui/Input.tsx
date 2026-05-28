@@ -30,14 +30,14 @@ const Input: React.FC<InputProps> = ({
   disabled = false,
 }) => {
   const fieldStyles =
-    'w-full bg-gray-900 border border-gray-700 text-white placeholder-gray-500 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed';
+    'w-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed';
 
   const errorStyles = error ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : '';
 
   return (
     <div className={`flex flex-col gap-1.5 ${className}`}>
       {label && (
-        <label className="text-sm font-medium text-gray-300">
+        <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
           {label}
           {required && <span className="text-orange-500 ml-1">*</span>}
         </label>

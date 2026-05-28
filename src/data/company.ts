@@ -68,27 +68,27 @@ export const faqItems: FaqItem[] = [
   {
     question: 'What services do you offer?',
     answer:
-      'Custom web and app development, cloud solutions, UX/UI design, cybersecurity, QA testing, and IT consulting — end to end.',
+      'We provide custom web/app development, cloud solutions, UX/UI design, and more.',
   },
   {
     question: 'How do I know if this is right for my business?',
     answer:
-      "Let's talk it through. Book a free consultation with our team — no pressure, just an honest conversation about what you need.",
+      "Book a free consult — we’ll assess your goals and recommend the right approach.",
   },
   {
     question: 'How much does a project cost?',
     answer:
-      'Costs vary depending on scope and complexity. After a short discovery call, we put together a detailed, transparent quote with no hidden fees.',
+      'Every project is different. Let’s talk about your needs to get a tailored estimate.',
   },
   {
     question: 'How long does a project take?',
     answer:
-      'A simple website typically takes 2–4 weeks. A full-featured product can take 3–6 months. We always agree on a timeline upfront.',
+      'Depends on scope — but we always prioritize quality and deadlines.',
   },
   {
     question: 'Can I start with a small project first?',
     answer:
-      'Absolutely. Many of our longest-running partnerships started with a single focused sprint. Start small, grow fast.',
+      'Absolutely. We often begin with MVPs or pilot projects.',
   },
 ];
 
