@@ -122,11 +122,11 @@ const ContactSection: React.FC = () => {
 
           {/* Success modal */}
           {status === 'success' && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
-              <div className="bg-[#1a1a2e] rounded-2xl p-10 flex flex-col items-center text-center max-w-sm w-full mx-4 shadow-2xl">
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 dark:bg-black/60 backdrop-blur-sm">
+              <div className="bg-white dark:bg-[#1a1a2e] border border-gray-200 dark:border-white/10 rounded-2xl p-10 flex flex-col items-center text-center max-w-sm w-full mx-4 shadow-2xl">
                 <img src={successModalImg} alt="Success" className="w-32 h-32 object-contain mb-6" />
-                <h3 className="text-white font-bold text-2xl mb-3">Message Received!</h3>
-                <p className="text-white/50 text-sm mb-8">Thanks for reaching out — we'll get back to you as soon as possible.</p>
+                <h3 className="text-gray-900 dark:text-white font-bold text-2xl mb-3">Message Received!</h3>
+                <p className="text-gray-500 dark:text-white/50 text-sm mb-8">Thanks for reaching out — we'll get back to you as soon as possible.</p>
                 <a href="#" onClick={() => setStatus('idle')} className="w-full py-3 bg-[#FF623E] hover:bg-[#FF623E]/90 hover:scale-105 text-white font-bold text-sm rounded-full text-center transition-all duration-200">
                   Back to Home
                 </a>
@@ -136,11 +136,11 @@ const ContactSection: React.FC = () => {
 
           {/* Error modal */}
           {status === 'error' && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
-              <div className="bg-[#1a1a2e] rounded-2xl p-10 flex flex-col items-center text-center max-w-sm w-full mx-4 shadow-2xl">
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 dark:bg-black/60 backdrop-blur-sm">
+              <div className="bg-white dark:bg-[#1a1a2e] border border-gray-200 dark:border-white/10 rounded-2xl p-10 flex flex-col items-center text-center max-w-sm w-full mx-4 shadow-2xl">
                 <img src={errorModalImg} alt="Error" className="w-32 h-32 object-contain mb-6" />
-                <h3 className="text-white font-bold text-2xl mb-3">Oops! Something went wrong.</h3>
-                <p className="text-white/50 text-sm mb-8">We couldn't send your message. Please try again or check your connection.</p>
+                <h3 className="text-gray-900 dark:text-white font-bold text-2xl mb-3">Oops! Something went wrong.</h3>
+                <p className="text-gray-500 dark:text-white/50 text-sm mb-8">We couldn't send your message. Please try again or check your connection.</p>
                 <button onClick={() => setStatus('idle')} className="w-full py-3 bg-[#FF623E] hover:bg-[#FF623E]/90 hover:scale-105 text-white font-bold text-sm rounded-full transition-all duration-200 cursor-pointer">
                   Try Again
                 </button>

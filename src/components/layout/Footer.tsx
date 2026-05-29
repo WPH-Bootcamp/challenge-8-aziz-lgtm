@@ -47,31 +47,33 @@ const Footer: React.FC = () => {
         {/* Divider */}
         <div className="w-full border-t border-gray-200 dark:border-[#252B37] mt-auto mb-14 lg:mb-14" />
 
-        {/* Nav — stacked on mobile, row on desktop */}
-        <nav className="flex flex-col lg:flex-row lg:flex-wrap gap-2 lg:gap-x-6 lg:gap-y-2 w-full">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="h-7 sm:h-7 md:h-7.5 lg:h-7.5 font-medium text-sm sm:text-sm md:text-base lg:text-base leading-7 sm:leading-7 md:leading-7.5 lg:leading-7.5 text-gray-700 dark:text-white/50 hover:text-gray-900 lg:text-[#0A0D12] dark:hover:text-white lg:hover:text-gray-600 flex-none order-0 sm:order-0 grow-0 sm:grow-0 transition-colors duration-200"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
+        {/* Nav + Social — stacked on mobile, side-by-side on lg */}
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between w-full gap-4 lg:gap-0">
+          <nav className="flex flex-col lg:flex-row lg:flex-wrap gap-2 lg:gap-x-6 lg:gap-y-2">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="h-7 sm:h-7 md:h-7.5 lg:h-7.5 font-medium text-sm sm:text-sm md:text-base lg:text-base leading-7 sm:leading-7 md:leading-7.5 lg:leading-7.5 text-gray-700 dark:text-white/50 hover:text-gray-900 lg:text-[#0A0D12] dark:hover:text-white lg:hover:text-gray-600 flex-none order-0 sm:order-0 grow-0 sm:grow-0 transition-colors duration-200"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
 
-        {/* Social icons */}
-        <div className="flex items-center gap-3">
-          {socialLinks.map((social) => (
-            <a
-              key={social.key}
-              href="#"
-              className="w-9 h-9 rounded-full bg-gray-100 dark:bg-transparent border border-gray-300 dark:border-white/20 hover:bg-[#FF5C00] hover:border-[#FF5C00] flex items-center justify-center text-[#0A0D12] dark:text-[#FDFDFD] hover:text-white transition-all duration-200"
-              aria-label={social.key}
-            >
-              {social.icon}
-            </a>
-          ))}
+          {/* Social icons */}
+          <div className="flex items-center gap-3">
+            {socialLinks.map((social) => (
+              <a
+                key={social.key}
+                href="#"
+                className="w-9 h-9 rounded-full bg-gray-100 dark:bg-transparent border border-gray-300 dark:border-white/20 hover:bg-[#FF5C00] hover:border-[#FF5C00] flex items-center justify-center text-[#0A0D12] dark:text-[#FDFDFD] hover:text-white transition-all duration-200"
+                aria-label={social.key}
+              >
+                {social.icon}
+              </a>
+            ))}
+          </div>
         </div>
 
       </div>

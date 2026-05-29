@@ -291,7 +291,7 @@ Berdasarkan design Figma, buat sections berikut (sesuaikan dengan design yang di
 ```
 Nama: [AZIZ AHMAD FAIZAL ABROR]
 Repository: [https://github.com/WPH-Bootcamp/challenge-8-aziz-lgtm.git]
-Deployment: [Lhttps://challenge-8-aziz-lgtm.vercel.app/]
+Deployment: https://challenge-8-aziz-lgtm.vercel.app/
 Notes: [Catatan tambahan jika ada - challenges, learning points, etc.]
 ```
 
