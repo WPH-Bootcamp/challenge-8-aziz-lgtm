@@ -13,14 +13,14 @@ import databrick from '../../assets/databrick.png';
 
 const logos = [
   { src: adobe, alt: 'Adobe' },
+  { src: upwork, alt: 'Upwork' },
   { src: zoom, alt: 'Zoom' },
   { src: postman, alt: 'Postman' },
   { src: databrick, alt: 'Databrick', height: 'h-16' },
-  { src: netflix, alt: 'Netflix' },
   { src: airbnb, alt: 'Airbnb' },
   { src: dropbox, alt: 'Dropbox' },
-  { src: upwork, alt: 'Upwork' },
   { src: paypal, alt: 'PayPal' },
+  { src: netflix, alt: 'Netflix' },
 ];
 
 const AboutSection: React.FC = () => {
@@ -41,7 +41,7 @@ const AboutSection: React.FC = () => {
       <div className='relative h-48 overflow-hidden mb-24 mask-[linear-gradient(to_right,transparent_0%,black_10%,black_90%,transparent_100%)] sm:mask-[linear-gradient(to_right,transparent_0%,transparent_15%,black_25%,black_75%,transparent_85%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_10%,black_90%,transparent_100%)] sm:[-webkit-mask-image:linear-gradient(to_right,transparent_0%,transparent_15%,black_25%,black_75%,transparent_85%,transparent_100%)]'>
 
         {/* Title */}
-        <span className='block w-full sm:w-auto h-7.5 sm:h-auto font-bold text-base sm:text-2xl leading-7.5 sm:leading-9 text-center tracking-[-0.02em] text-gray-900 dark:text-[#FDFDFD] flex-none order-0 self-stretch grow-0'>
+        <span className='block w-full sm:w-auto h-7.5 sm:h-auto font-bold text-base sm:text-lg md:text-2xl leading-7.5 sm:leading-8 md:leading-9 text-center tracking-[-0.02em] text-gray-900 dark:text-[#FDFDFD] flex-none order-0 self-stretch grow-0'>
           Trusted by Global Innovators & Leading Brands
         </span>
 
@@ -55,7 +55,7 @@ const AboutSection: React.FC = () => {
               key={i}
               src={logo.src}
               alt={logo.alt}
-              className={`${logo.height ?? 'h-10'} w-auto max-w-28 mr-12 mix-blend-luminosity shrink-0 opacity-[0.65] grayscale object-contain transition-all duration-200 ease-in-out hover:opacity-100 hover:grayscale-0 hover:scale-105`}
+              className={`${logo.height ?? 'h-12'} w-auto max-w-34 mr-12 mix-blend-luminosity shrink-0 opacity-[0.65] grayscale object-contain transition-all duration-200 ease-in-out hover:opacity-100 hover:grayscale-0 hover:scale-105`}
             />
           ))}
         </div>
@@ -106,7 +106,7 @@ const AboutSection: React.FC = () => {
             <div className='absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gray-200 dark:bg-white/10 md:-translate-x-1/2' />
 
             {/* Mobile: [circle | card], Desktop: zigzag [card | circle | card] */}
-            <div className='relative flex flex-col gap-8 md:grid md:grid-cols-[1fr_auto_1fr] md:gap-y-8'>
+            <div className='relative flex flex-col gap-8 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-y-8'>
               {processSteps.map((step, index) => {
                 const isLeft = index % 2 === 0;
                 const isOpen = openItems.has(index);
@@ -114,7 +114,7 @@ const AboutSection: React.FC = () => {
                 const card = (
                   <div className='w-full rounded-2xl bg-gray-50 dark:bg-[#0A0D12] p-4 cursor-pointer border border-gray-200 dark:border-[#181D27] transition-all duration-200 hover:border-gray-300 dark:hover:border-white/10 hover:bg-gray-100 dark:hover:bg-[#1a1a1a]' onClick={() => toggle(index)}>
                     <div className='flex items-center justify-between gap-10'>
-                      <h3 className='flex-1 md:w-83.25 md:flex-none font-bold text-base md:text-xl leading-7.5 md:leading-8.5 tracking-[-0.02em] text-gray-900 dark:text-[#FDFDFD] order-0 self-stretch m-0'>
+                      <h3 className='flex-1 lg:w-83.25 lg:flex-none font-bold text-base lg:text-xl leading-7.5 lg:leading-8.5 tracking-[-0.02em] text-gray-900 dark:text-[#FDFDFD] order-0 self-stretch m-0'>
                         {step.title}
                       </h3>
                       <span className={`shrink-0 transition-transform duration-200 ${isOpen ? 'text-[#FF5C00] rotate-180' : 'text-[#717680] dark:text-[#FDFDFD]'}`}>
@@ -122,7 +122,7 @@ const AboutSection: React.FC = () => {
                       </span>
                     </div>
                     {isOpen && (
-                      <p className='w-full md:w-83.25 font-medium text-sm md:text-base leading-7 md:leading-7.5 text-[#A4A7AE] flex-none order-1 self-stretch grow-0 m-0 mt-2'>
+                      <p className='w-full lg:w-83.25 font-medium text-sm lg:text-base leading-7 lg:leading-7.5 text-[#A4A7AE] flex-none order-1 self-stretch grow-0 m-0 mt-2'>
                         {step.detail}
                       </p>
                     )}
@@ -132,7 +132,7 @@ const AboutSection: React.FC = () => {
                 return (
                   <React.Fragment key={step.number}>
                     {/* Mobile layout */}
-                    <div className='flex md:hidden items-start gap-4 pl-0'>
+                    <div className='flex lg:hidden items-start gap-4 pl-0'>
                       <div className='relative z-10 flex items-center justify-center shrink-0 mt-1'>
                         <div className='flex flex-col justify-center items-center p-2 gap-2 w-12 h-12 bg-[#FF623E] rounded-full flex-none text-sm font-bold text-white'>
                           {step.number}
@@ -142,15 +142,15 @@ const AboutSection: React.FC = () => {
                     </div>
 
                     {/* Desktop zigzag layout */}
-                    <div className='hidden md:flex items-center justify-end pr-8'>
+                    <div className='hidden lg:flex items-center justify-end pr-8'>
                       {isLeft ? card : null}
                     </div>
-                    <div className='hidden md:flex relative z-10 items-center justify-center py-2'>
+                    <div className='hidden lg:flex relative z-10 items-center justify-center py-2'>
                       <div className='flex flex-col justify-center items-center p-2 gap-2 w-12 h-12 bg-[#FF623E] rounded-full flex-none order-1 grow-0 text-sm font-bold text-white'>
                         {step.number}
                       </div>
                     </div>
-                    <div className='hidden md:flex items-center justify-start pl-8'>
+                    <div className='hidden lg:flex items-center justify-start pl-8'>
                       {!isLeft ? card : null}
                     </div>
                   </React.Fragment>

@@ -22,11 +22,11 @@ const ServicesSection: React.FC = () => {
         </div>
 
         {/* Services grid — 3x3 cards with top-left overlapping PNG icons */}
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-16 mb-24'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-16 mb-24'>
           {services.map((service) => (
             <div
               key={service.id}
-              className='relative flex flex-col items-start pt-12 md:pt-16 px-5 pb-5 gap-2 md:gap-5 isolate min-h-32.5 md:min-h-45.5 bg-white dark:bg-[#0A0D12] border border-gray-200 dark:border-[#181D27] rounded-2xl flex-none order-1 self-stretch grow-0 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300 dark:hover:border-white/20'
+              className='relative flex flex-col items-start pt-12 sm:pt-12 md:pt-16 px-5 pb-5 gap-2 sm:gap-2 md:gap-5 isolate min-h-32.5 sm:min-h-32.5 md:min-h-45.5 bg-white dark:bg-[#0A0D12] border border-gray-200 dark:border-[#181D27] rounded-2xl flex-none order-1 self-stretch grow-0 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gray-300 dark:hover:border-white/20'
             >
               <div className='absolute left-5 -top-8 w-16 h-16 md:-top-10 md:w-20 md:h-20'>
                 <img
@@ -35,10 +35,10 @@ const ServicesSection: React.FC = () => {
                   className='absolute inset-0 w-full h-full object-contain'
                 />
               </div>
-              <h3 className='w-full h-7.5 md:h-auto font-bold text-base md:text-xl leading-7.5 md:leading-8.5 tracking-[-0.02em] text-gray-900 dark:text-[#FDFDFD] flex-none order-0 self-stretch grow-0 m-0'>
+              <h3 className='w-full h-7.5 sm:h-7.5 md:h-auto font-bold text-base sm:text-base md:text-xl leading-7.5 sm:leading-7.5 md:leading-8.5 tracking-[-0.02em] text-gray-900 dark:text-[#FDFDFD] flex-none order-0 self-stretch grow-0 m-0'>
                 {service.title}
               </h3>
-              <p className='w-full h-14 md:h-auto font-medium text-sm md:text-base leading-7 md:leading-7.5 text-[#A4A7AE] flex-none order-1 self-stretch grow-0 m-0'>
+              <p className='w-full h-14 sm:h-14 md:h-auto font-medium text-sm sm:text-sm md:text-base leading-7 sm:leading-7 md:leading-7.5 text-[#A4A7AE] flex-none order-1 self-stretch grow-0 m-0'>
                 {service.description}
               </p>
             </div>
@@ -54,9 +54,9 @@ const ServicesSection: React.FC = () => {
             We've helped companies across industries launch smarter, faster, and more securely.
           </p>
 
-          <div className='flex flex-col gap-6 md:flex-row md:gap-12'>
+          <div className='flex flex-col gap-6 md:flex-row lg:flex-row md:gap-12 lg:gap-12'>
             {/* Vertical tab list */}
-            <div className='flex flex-col items-start gap-6 md:w-64 md:shrink-0'>
+            <div className='flex flex-col items-start gap-6 md:w-64 lg:w-64 md:shrink-0 lg:shrink-0'>
               {industries.map((ind) => (
                 <button
                   key={ind.id}
@@ -78,11 +78,11 @@ const ServicesSection: React.FC = () => {
               <p className='w-90.25 sm:w-full h-21 sm:h-auto font-medium text-sm sm:text-lg leading-7 sm:leading-8 text-[#717680] dark:text-[#FDFDFD] flex-none order-0 self-stretch grow-0 mb-6'>
                 {active.description}
               </p>
-              <div className='w-full h-50 sm:h-72 md:h-87.75 rounded-xl sm:rounded-3xl overflow-hidden flex-none order-1 self-stretch grow-0'>
+              <div className='relative w-full h-50 sm:h-72 md:h-87.75 lg:h-87.75 rounded-xl sm:rounded-3xl overflow-hidden flex-none order-1 self-stretch grow-0'>
                 <img
                   src={active.image}
                   alt={active.label}
-                  className='w-full h-full object-cover'
+                  className='w-full h-full object-cover sm:absolute sm:w-full sm:h-full sm:left-0 sm:top-0 md:static md:w-full md:h-full md:left-auto md:top-auto lg:static lg:w-full lg:h-full lg:left-auto lg:top-auto'
                 />
               </div>
             </div>

@@ -21,10 +21,10 @@ const TestimonialsSection: React.FC = () => {
 
       {/* Header */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center mb-16">
-        <h2 className="font-bold text-[28px] sm:text-[34px] md:text-[40px] leading-tight md:leading-14 text-center tracking-[-0.02em] text-gray-900 dark:text-[#FDFDFD] flex-none self-stretch grow-0 mb-4">
+        <h2 className="font-bold text-[28px] sm:w-98.25 sm:mx-auto sm:h-19 sm:text-[28px] sm:leading-9.5 md:w-full md:mx-0 md:h-auto md:text-[40px] md:leading-14 lg:text-[40px] lg:leading-14 leading-tight text-center sm:text-center tracking-[-0.02em] text-gray-900 dark:text-[#FDFDFD] flex-none sm:flex-none order-0 sm:order-0 self-stretch sm:self-stretch grow-0 sm:grow-0 mb-4">
           What Partners Say About Working With Us
         </h2>
-        <p className="font-medium text-lg leading-8 text-center text-[#A4A7AE] flex-none order-1 self-stretch grow-0">
+        <p className="font-medium text-lg sm:w-98.25 sm:mx-auto sm:h-7 sm:text-sm sm:leading-7 md:w-full md:mx-0 md:h-auto md:text-lg md:leading-8 lg:text-lg lg:leading-8 leading-8 text-center text-[#A4A7AE] flex-none order-1 sm:order-1 self-stretch sm:self-stretch grow-0 sm:grow-0">
           Trusted voices. Real experiences. Proven results.
         </p>
       </div>
@@ -70,7 +70,7 @@ const TestimonialsSection: React.FC = () => {
                   </div>
 
                   {/* Quote */}
-                  <p className="h-24 font-semibold text-lg leading-8 text-center text-gray-800 dark:text-[#FDFDFD] flex-none order-1 self-stretch grow-0 z-1">
+                  <p className="h-24 font-semibold text-lg sm:w-82.25 sm:mx-auto sm:h-28 sm:text-sm sm:leading-7 md:w-full md:mx-0 md:h-24 md:text-lg md:leading-8 lg:text-lg lg:leading-8 leading-8 text-center text-gray-800 dark:text-[#FDFDFD] flex-none order-1 sm:order-1 self-stretch sm:self-stretch grow-0 sm:grow-0 z-1">
                     "{t.quote}"
                   </p>
 

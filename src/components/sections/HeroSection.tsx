@@ -12,26 +12,26 @@ const HeroSection: React.FC = () => {
     <section className='relative min-h-screen bg-white dark:bg-[#0a0a0a] overflow-hidden'>
       {/* Subtle grid — desktop dark mode only */}
       <div
-        className='hidden md:dark:block absolute inset-0 opacity-[0.03] bg-[linear-gradient(rgba(255,255,255,0.8)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.8)_1px,transparent_1px)] bg-size-[80px_80px]'
+        className='hidden lg:dark:block absolute inset-0 opacity-[0.03] bg-[linear-gradient(rgba(255,255,255,0.8)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.8)_1px,transparent_1px)] bg-size-[80px_80px]'
       />
       {/* Ambient glow — desktop only */}
       <div
-        className='hidden md:block absolute top-0 right-0 w-150 h-125 pointer-events-none [background:radial-gradient(ellipse_at_80%_10%,rgba(255,92,0,0.12)_0%,transparent_65%)] dark:[background:radial-gradient(ellipse_at_80%_10%,rgba(255,92,0,0.18)_0%,transparent_65%)]'
+        className='hidden lg:block absolute top-0 right-0 w-150 h-125 pointer-events-none [background:radial-gradient(ellipse_at_80%_10%,rgba(255,92,0,0.12)_0%,transparent_65%)] dark:[background:radial-gradient(ellipse_at_80%_10%,rgba(255,92,0,0.18)_0%,transparent_65%)]'
       />
       {/* Dim glow — desktop only */}
       <div
-        className='hidden md:block absolute bottom-0 left-0 w-100 h-100 pointer-events-none [background:radial-gradient(ellipse_at_20%_90%,rgba(255,92,0,0.05)_0%,transparent_60%)] dark:[background:radial-gradient(ellipse_at_20%_90%,rgba(255,92,0,0.07)_0%,transparent_60%)]'
+        className='hidden lg:block absolute bottom-0 left-0 w-100 h-100 pointer-events-none [background:radial-gradient(ellipse_at_20%_90%,rgba(255,92,0,0.05)_0%,transparent_60%)] dark:[background:radial-gradient(ellipse_at_20%_90%,rgba(255,92,0,0.07)_0%,transparent_60%)]'
       />
 
       {/* ── Mobile layout (natural flow) ── */}
-      <div className='md:hidden flex flex-col pt-31.25 pb-16'>
+      <div className='lg:hidden flex flex-col pt-31.25 pb-16'>
         {/* Title + subtitle + button — centered at 361px */}
         <div className='flex flex-col items-start p-0 gap-10 w-90.25 mx-auto'>
-          <h1 className='w-full font-bold text-[36px] leading-11 tracking-[-0.02em] m-0 flex-none order-0 self-stretch grow-0'>
+          <h1 className='w-full font-bold text-[36px] md:text-[56px] leading-11 md:leading-17 tracking-[-0.02em] m-0 flex-none order-0 self-stretch grow-0'>
             <span className='block text-gray-900 dark:text-[#FDFDFD]'>Your Tech Partner for</span>
             <span className='block text-[#FF6C37]'>Smarter Growth</span>
           </h1>
-          <p className='w-full font-semibold text-base leading-7.5 text-gray-600 dark:text-[#FDFDFD] m-0 flex-none order-1 self-stretch grow-0'>
+          <p className='w-full font-semibold text-base md:text-xl leading-7.5 md:leading-8.5 text-gray-600 dark:text-[#FDFDFD] m-0 flex-none order-1 self-stretch grow-0'>
             {companyInfo.description}
           </p>
           <a
@@ -52,7 +52,7 @@ const HeroSection: React.FC = () => {
 
       {/* ── Desktop layout (absolute positioning) ── */}
       <div
-        className='hidden md:block absolute w-186.75 h-186.75 right-0 top-0'
+        className='hidden lg:block absolute w-186.75 h-186.75 right-0 top-0'
         style={{
           maskImage: 'linear-gradient(to right, transparent 0%, black 30%), linear-gradient(to top, transparent 0%, black 25%)',
           maskComposite: 'intersect',
@@ -63,8 +63,8 @@ const HeroSection: React.FC = () => {
         <img src={heroImage} alt='Hero Image' className='w-full h-full object-contain' />
       </div>
 
-      <div className='hidden md:flex absolute z-10 flex-col items-start gap-10 w-163.25 left-35 top-57.5'>
-        <h1 className='w-163.25 font-bold text-14 leading-17 tracking-[-0.02em] m-0'>
+      <div className='hidden lg:flex absolute z-10 flex-col items-start gap-10 w-163.25 left-35 top-57.5'>
+        <h1 className='w-163.25 font-bold text-[56px] leading-17 tracking-[-0.02em] m-0'>
           <span className='block text-gray-900 dark:text-[#FDFDFD]'>Your Tech Partner for</span>
           <span className='block text-[#FF6C37]'>Smarter Growth</span>
         </h1>
