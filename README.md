@@ -289,20 +289,20 @@ Berdasarkan design Figma, buat sections berikut (sesuaikan dengan design yang di
 **Format Submission:**
 
 ```
-Nama: [Nama lengkap kamu]
-Repository: [GitHub repository URL]
-Deployment: [Live website URL]
+Nama: [AZIZ AHMAD FAIZAL ABROR]
+Repository: [https://github.com/WPH-Bootcamp/challenge-8-aziz-lgtm.git]
+Deployment: [Lhttps://challenge-8-aziz-lgtm.vercel.app/]
 Notes: [Catatan tambahan jika ada - challenges, learning points, etc.]
 ```
 
 ### Checklist Sebelum Submit
 
-- [ ] All sections completed
-- [ ] Responsive di semua device
-- [ ] No console errors
-- [ ] Code di-push ke GitHub
-- [ ] Website deployed dan accessible
-- [ ] README updated (optional)
+- [✅] All sections completed
+- [✅] Responsive di semua device
+- [✅] No console errors
+- [✅] Code di-push ke GitHub
+- [✅] Website deployed dan accessible
+- [✅] README updated (optional)
 
 ## FAQ & Common Issues
 
